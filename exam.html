@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JKBOSE 12th Question Bank — All Subjects 2020-2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=IBM+Plex+Mono:wght@500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1a17;
+    --panel: #1a2e28;
+    --panel-2: #1f3a32;
+    --rule: #2d4d3f;
+    --chalk: #ede8d6;
+    --chalk-dim: #a0b8aa;
+    --yellow: #e8c547;
+    --coral: #e3806b;
+    --mint: #79c29a;
+    --blue: #8fb8de;
+    --pink: #d4a0b0;
+    --radius: 10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background: radial-gradient(circle at 50% 0%, #1a2e28 0%, var(--bg) 60%);
+    color:var(--chalk);
+    font-family:'Source Sans 3', sans-serif;
+    line-height:1.5;
+    min-height:100vh;
+    padding-bottom:60px;
+  }
+  .app{max-width:1100px;margin:0 auto;padding:16px 14px 0;}
+
+  .app-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px;}
+  .app-header h1{
+    font-family:'Caveat',cursive;
+    font-weight:700;
+    font-size:2.6rem;
+    color:var(--yellow);
+    line-height:1;
+    display:flex;align-items:center;gap:8px;
+  }
+  .app-header h1 span{font-size:1.2rem;color:var(--chalk-dim);font-family:'Source Sans 3',sans-serif;font-weight:400;}
+  .app-header .stats{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--chalk-dim);text-align:right;}
+  .app-header .stats strong{color:var(--chalk);}
+
+  .subject-tabs{
+    display:flex;gap:6px;margin-bottom:16px;border-bottom:1px solid var(--rule);padding-bottom:8px;flex-wrap:wrap;
+  }
+  .subject-tab{
+    background:none;border:none;color:var(--chalk-dim);
+    font-family:'Source Sans 3',sans-serif;font-size:1rem;font-weight:600;
+    padding:6px 18px;border-radius:var(--radius) var(--radius) 0 0;
+    cursor:pointer;transition:all .15s ease;border-bottom:3px solid transparent;
+    display:flex;align-items:center;gap:6px;
+  }
+  .subject-tab:hover{color:var(--chalk);}
+  .subject-tab.active{color:var(--yellow);border-bottom-color:var(--yellow);background:rgba(232,197,71,0.06);}
+  .subject-tab .badge{
+    font-size:0.6rem;background:var(--panel-2);padding:1px 8px;border-radius:999px;
+    color:var(--chalk-dim);
+  }
+  .subject-tab.active .badge{background:rgba(232,197,71,0.2);color:var(--yellow);}
+  .subject-tab .icon{font-size:1.2rem;}
+
+  .controls{
+    background:rgba(15,26,24,0.96);
+    backdrop-filter:blur(6px);
+    padding:10px 0 12px;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:16px;
+    position:sticky;top:0;z-index:10;
+  }
+  .controls-inner{max-width:1100px;margin:0 auto;padding:0 14px;}
+  .rowlabel{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.6rem;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--chalk-dim);margin:0 0 4px;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px;}
+  .chip{
+    appearance:none;border:1px solid var(--rule);background:var(--panel);
+    color:var(--chalk-dim);padding:4px 10px;border-radius:999px;
+    font-size:0.75rem;font-family:'Source Sans 3',sans-serif;font-weight:600;
+    cursor:pointer;transition:all .15s ease;
+  }
+  .chip .n{font-family:'IBM Plex Mono',monospace;font-weight:500;opacity:.7;margin-left:3px;}
+  .chip.active{background:var(--yellow);border-color:var(--yellow);color:#0d1a17;}
+  .chip.off{opacity:.4;}
+  .chip.type.active{background:var(--blue);border-color:var(--blue);color:#0d1a17;}
+
+  .controls-row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:4px;}
+  .quickbtns{display:flex;gap:4px;flex-wrap:wrap;}
+  .quickbtns button{
+    background:none;border:none;color:var(--mint);font-size:0.7rem;
+    font-family:'IBM Plex Mono',monospace;cursor:pointer;text-decoration:underline;
+    text-underline-offset:2px;padding:2px 4px;
+  }
+  .score{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--chalk-dim);text-align:right;}
+  .score b{color:var(--yellow);}
+  .score .correct-n{color:var(--mint);}
+  .score .rev-n{color:var(--blue);}
+
+  .topic-section{margin-bottom:20px;}
+  .topic-head{display:flex;align-items:baseline;gap:8px;margin-bottom:8px;border-bottom:1px solid var(--rule);padding-bottom:4px;}
+  .topic-head h2{font-size:1rem;margin:0;color:var(--chalk);font-weight:700;}
+  .topic-head .count{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--chalk-dim);}
+
+  .q-card{
+    background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);
+    padding:10px 12px 8px;margin-bottom:6px;
+  }
+  .q-card:hover{border-color:var(--chalk-dim);}
+  .q-meta{display:flex;justify-content:space-between;gap:6px;margin-bottom:4px;align-items:center;flex-wrap:wrap;}
+  .q-tag{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--mint);}
+  .q-kind{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--blue);border:1px solid var(--blue);border-radius:3px;padding:0 5px;}
+  .q-text{font-size:0.88rem;font-weight:600;margin:0 0 6px;color:var(--chalk);white-space:pre-line;}
+
+  .options{display:grid;gap:4px;}
+  .opt{
+    display:flex;align-items:flex-start;gap:6px;padding:4px 8px;border-radius:5px;
+    border:1px solid var(--rule);background:var(--panel-2);cursor:pointer;font-size:0.8rem;
+    transition:all .12s ease;
+  }
+  .opt:hover{border-color:var(--chalk-dim);}
+  .opt .letter{font-family:'IBM Plex Mono',monospace;color:var(--chalk-dim);flex:0 0 auto;font-weight:600;}
+  .opt.picked{border-color:var(--yellow);}
+  .opt.correct{border-color:var(--mint);background:rgba(121,194,154,0.12);}
+  .opt.correct .letter{color:var(--mint);}
+  .opt.wrong{border-color:var(--coral);background:rgba(227,128,107,0.12);}
+  .opt.wrong .letter{color:var(--coral);}
+  .opt.disabled{cursor:default;}
+
+  .verdict{margin-top:4px;font-size:0.75rem;font-family:'IBM Plex Mono',monospace;}
+  .verdict.right{color:var(--mint);}
+  .verdict.wrong{color:var(--coral);}
+
+  .revealBtn{
+    background:var(--panel-2);border:1px solid var(--rule);color:var(--blue);
+    font-family:'IBM Plex Mono',monospace;font-size:0.7rem;padding:3px 10px;
+    border-radius:4px;cursor:pointer;margin-top:2px;
+  }
+  .revealBtn:hover{border-color:var(--blue);}
+  .keypoints{
+    margin-top:4px;padding:6px 10px;border-radius:4px;
+    background:rgba(143,184,222,0.05);border:1px solid var(--rule);
+    font-size:0.8rem;color:var(--chalk-dim);display:none;
+  }
+  .keypoints.shown{display:block;}
+  .keypoints b{color:var(--blue);}
+  .reviewRow{display:flex;align-items:center;gap:4px;margin-top:6px;}
+  .reviewRow label{font-size:0.7rem;color:var(--chalk-dim);font-family:'IBM Plex Mono',monospace;cursor:pointer;}
+  .reviewRow input{accent-color:var(--mint);width:13px;height:13px;cursor:pointer;}
+
+  .empty-state{color:var(--chalk-dim);font-family:'IBM Plex Mono',monospace;font-size:0.8rem;padding:30px 0;text-align:center;}
+  footer{max-width:1100px;margin:12px auto 0;padding:0 14px;color:var(--chalk-dim);font-size:0.6rem;font-family:'IBM Plex Mono',monospace;border-top:1px solid var(--rule);padding-top:12px;}
+
+  @media (max-width:700px){
+    .app{padding:10px 8px 0;}
+    .app-header h1{font-size:2rem;}
+    .app-header h1 span{font-size:0.9rem;}
+    .chip{font-size:0.65rem;padding:3px 8px;}
+    .q-text{font-size:0.82rem;}
+    .subject-tab{font-size:0.85rem;padding:4px 12px;}
+  }
+  @media (max-width:480px){
+    .controls-row{flex-direction:column;align-items:stretch;}
+    .score{text-align:left;}
+  }
+</style>
+</head>
+<body>
+<div class="app" id="app">
+
+  <header class="app-header">
+    <h1>📚 JKBOSE 12th <span>Question Bank · 2020-2025</span></h1>
+    <div class="stats">
+      <span id="totalStats">Loading...</span>
+    </div>
+  </header>
+
+  <nav class="subject-tabs" id="subjectTabs">
+    <button class="subject-tab active" data-subject="physics">
+      <span class="icon">⚛️</span> Physics <span class="badge" id="physCount">0</span>
+    </button>
+    <button class="subject-tab" data-subject="chemistry">
+      <span class="icon">🧪</span> Chemistry <span class="badge" id="chemCount">0</span>
+    </button>
+    <button class="subject-tab" data-subject="mathematics">
+      <span class="icon">📐</span> Mathematics <span class="badge" id="mathCount">0</span>
+    </button>
+  </nav>
+
+  <div class="controls">
+    <div class="controls-inner">
+      <p class="rowlabel">Topics</p>
+      <div class="chips" id="chips"></div>
+      <p class="rowlabel">Question type</p>
+      <div class="chips" id="typeChips"></div>
+      <div class="controls-row">
+        <div class="quickbtns">
+          <button id="allBtn">show all</button>
+          <button id="noneBtn">hide all</button>
+          <button id="resetBtn">reset progress</button>
+        </div>
+        <div class="score" id="score"></div>
+      </div>
+    </div>
+  </div>
+
+  <main id="quiz"></main>
+
+  <footer>All questions from JKBOSE Class 12 previous year papers (2020-2025). Answers and hints based on standard NCERT concepts.</footer>
+</div>
+
+<script>
+/* ============================================================
+   DATA — ALL SUBJECTS (Physics, Chemistry, Mathematics)
+   ============================================================ */
+
+let _id = 0;
+const nid = () => 'q' + (_id++);
+
+function mcq(subject, topic, src, text, options, correct) {
+  return { id: nid(), subject, topic, src, qtype: 'mcq', text, options, correct };
+}
+function tf(subject, topic, src, text, correct) {
+  return { id: nid(), subject, topic, src, qtype: 'mcq', text, options: { A: "True", B: "False" }, correct };
+}
+function written(subject, topic, src, text, keypoints) {
+  return { id: nid(), subject, topic, src, qtype: 'written', text, keypoints };
+}
+
+/* ============================================================
+   PHYSICS — COMPLETE (including all from Claude's site)
+   ============================================================ */
+const PHYSICS_TOPICS = ["Electrostatics","Current Electricity","Magnetism","EMI & AC","EM Waves","Optics","Dual Nature","Atoms & Nuclei","Semiconductors","Communication Systems"];
+
+const PHYSICS_QUESTIONS = [
+  // ===== ELECTROSTATICS =====
+  mcq("physics","Electrostatics","1108-X · 2024","A body can be negatively charged by:",
+    {A:"Giving excess of electrons", B:"Removing some electrons", C:"Giving some protons", D:"Removing some neutrons"}, "A"),
+  mcq("physics","Electrostatics","1108-X · 2024","It is possible to have a positively charged body at:",
+    {A:"Zero potential", B:"Negative potential", C:"Positive potential", D:"All of these"}, "D"),
+  mcq("physics","Electrostatics","1108-Y · 2024","Dimensions of K = 1/(4πε₀):",
+    {A:"C²N⁻¹m⁻²", B:"Nm²C⁻²", C:"Nm²C²", D:"Unitless"}, "B"),
+  mcq("physics","Electrostatics","1108-Y · 2024","Angle between dipole moment and electric field on equatorial line:",
+    {A:"0°", B:"90°", C:"180°", D:"None"}, "C"),
+  mcq("physics","Electrostatics","1108-Z · 2024","A stationary charge produces:",
+    {A:"An electric field", B:"A magnetic field", C:"Both", D:"An EM wave"}, "A"),
+  mcq("physics","Electrostatics","1108-Z · 2024","A soap bubble given negative charge: radius:",
+    {A:"Decreases", B:"Increases", C:"Remains same", D:"Cannot predict"}, "B"),
+  tf("physics","Electrostatics","6001-A · 2022","Charge resides only on the outer surface of a charged conductor.", "A"),
+  mcq("physics","Electrostatics","308-X · 2024-25","In insulators, as temperature decreases, resistivity:",
+    {A:"Increases", B:"Decreases", C:"Remains constant", D:"Becomes zero"}, "A"),
+
+  written("physics","Electrostatics","1108-X/Y/Z · 2024","What is an equipotential surface? Give direction of electric field.",
+    "A surface on which potential is constant everywhere. The electric field is always perpendicular to an equipotential surface, pointing from higher to lower potential."),
+  written("physics","Electrostatics","1108-Y/Z · 2024","No two equipotential surfaces intersect each other. Why?",
+    "If they did, the point of intersection would have two different potentials and two field directions at once — impossible, since V and E must be single-valued at any point."),
+  written("physics","Electrostatics","1108-Z · 2024","Distinguish between electric potential and potential energy; state the relation.",
+    "Potential V = work done per unit positive test charge (scalar, volts). Potential energy U = work done in bringing the actual charge q from infinity to that point. Relation: U = qV."),
+  written("physics","Electrostatics","1108-X/Y/Z · 2024","State Gauss's law. Derive E due to infinitely long charged wire. OR Capacitor series/parallel.",
+    "Gauss's law: ∮E·dA = q/ε₀. For line charge: E = λ/(2πε₀r). Series: 1/C=1/C₁+1/C₂+1/C₃. Parallel: C=C₁+C₂+C₃."),
+  written("physics","Electrostatics","9121-X/Y · 2023","Find expression for E due to line charge using Gauss's theorem. OR Explain conservation of charge.",
+    "E = λ/(2πε₀r). Charge conservation: total charge in isolated system stays constant."),
+  written("physics","Electrostatics","9121-X · 2023","Find E at any point outside a uniformly charged thin spherical shell. OR Quantization of charge.",
+    "For r > R: E = q/(4πε₀r²) — behaves like a point charge. Quantisation: q = ne."),
+  written("physics","Electrostatics","9614-A · 2023","Explain superposition principle. OR Energy stored in capacitor.",
+    "Superposition: net force is vector sum of individual forces. U = ½CV² = ½QV = Q²/2C."),
+  written("physics","Electrostatics","9801-B/C · 2023","What is electric dipole and dipole moment? Derive electric potential. OR Define capacitance; prove U=½CV².",
+    "p = q(2a). General: V = kp cosθ/r². Axial: V = kp/r². Equatorial: V = 0."),
+  written("physics","Electrostatics","9801-B · 2023","Define electric potential energy. Derive PE of two point charges. OR Van de Graaff generator.",
+    "U = kq₁q₂/r₁₂. Van de Graaff: charge sprayed onto belt, carried to dome, potential builds to millions of volts."),
+  written("physics","Electrostatics","9801-C · 2023","Define capacitance with dielectric slab. OR Dipole moment; equatorial field.",
+    "C = Kε₀A/d. Dipole moment is vector. Equatorial field: E = kp/r³, antiparallel to p."),
+  written("physics","Electrostatics","6001-A · 2022","Find electrostatic PE of dipole with q=3×10⁻⁶C, separation 2×10⁻⁷m. OR Three capacitors in series.",
+    "U = kq²/r ≈ 4.05×10⁵ J. Series: C = 6/11 ≈ 0.545 μF."),
+  written("physics","Electrostatics","6001-A · 2022","State Gauss' law. Derive E due to infinite line charge. OR Van de Graaff generator.",
+    "Same line-charge derivation."),
+  written("physics","Electrostatics","308-X · 2024-25","Draw lines of force for two equal and similar charges (q₁=q₂<0 and q₁=q₂>0).",
+    "Field lines run radially from/into each charge and repel, leaving a null point midway. Lines point inward for negative charges, outward for positive."),
+  written("physics","Electrostatics","308-X · 2024-25","Electron separated from proton by 0.53 Å. Calculate electric field at electron.",
+    "E = kq/r² = 9×10⁹ × 1.6×10⁻¹⁹ / (0.53×10⁻¹⁰)² ≈ 5.13×10¹¹ N/C."),
+  written("physics","Electrostatics","308-X · 2024-25","Using Gauss' theorem derive E due to infinitely long wire. OR Electric potential from +Q.",
+    "Same line-charge derivation. V = kQ/r."),
+
+  // ===== CURRENT ELECTRICITY =====
+  mcq("physics","Current Electricity","1108-X · 2024","Which relation is called current density?",
+    {A:"I/A", B:"A/I", C:"I²/A", D:"I³/A²"}, "A"),
+  mcq("physics","Current Electricity","1108-Y · 2024","Ohm's law is not obeyed by:",
+    {A:"Electrolytes", B:"Discharge tubes", C:"Vacuum tubes", D:"All of these"}, "D"),
+  mcq("physics","Current Electricity","1108-Z · 2024","The reciprocal of resistance is:",
+    {A:"Conductance", B:"Specific resistance", C:"Voltage", D:"Current"}, "A"),
+  mcq("physics","Current Electricity","308-X · 2024-25","In insulators as temperature decreases, resistivity:",
+    {A:"Increases", B:"Decreases", C:"Remains constant", D:"Becomes zero"}, "A"),
+  mcq("physics","Current Electricity","1105-A · 2020","Ratio of drift velocity to thermal velocity is of order:",
+    {A:"10⁻⁸", B:"10⁻⁵", C:"10⁻¹⁰", D:"10⁻³"}, "A"),
+
+  written("physics","Current Electricity","1108-X · 2024","Derive relation between e.m.f., potential difference, and internal resistance.",
+    "ε = V + Ir (discharging), so V = ε − Ir."),
+  written("physics","Current Electricity","1108-X/Y/Z · 2024","10 C charge flows through wire in 5 min. Radius 1 mm, n=5×10²²/cm³. Calculate current and drift velocity.",
+    "I = Q/t = 10/300 ≈ 0.033 A. vd = I/(nAe) ≈ 1.33×10⁻⁶ m/s."),
+  written("physics","Current Electricity","1108-X/Y/Z · 2024","What is an ammeter? Convert galvanometer to ammeter.",
+    "An ammeter measures current, connected in series. Convert by connecting low-resistance shunt in parallel."),
+  written("physics","Current Electricity","1108-Y · 2024","Define resistivity and SI unit. Explain variation with temperature.",
+    "ρ = RA/L, unit Ω·m. For conductors, ρ increases with temperature."),
+  written("physics","Current Electricity","1108-Z · 2024 / 9121 · 2023","Using Kirchhoff's laws, derive condition for balance of Wheatstone bridge.",
+    "At balance: P/Q = R/S."),
+  written("physics","Current Electricity","9121 · 2023","Explain how to compare e.m.f.'s of two cells using potentiometer.",
+    "Balance for each cell: ε₁/ε₂ = l₁/l₂."),
+  written("physics","Current Electricity","9121 · 2023","Derive expression for drift velocity in terms of relaxation time. OR Metre bridge.",
+    "vd = eEτ/m. Metre bridge: R = [(100−l)/l] × known resistance."),
+  written("physics","Current Electricity","9121 · 2023","Wire resistance 10.5Ω at 21°C and 16.4Ω at 147°C. Find temperature coefficient.",
+    "α = (R₂−R₁)/(R₁×ΔT) = (16.4−10.5)/(10.5×126) ≈ 4.46×10⁻³ per °C."),
+  written("physics","Current Electricity","9801-B/C · 2023","125 cm balances Daniel cell; 100 cm when 2Ω joined. Find internal resistance.",
+    "r = R(l₁−l₂)/l₂ = 2×(125−100)/100 = 0.5 Ω."),
+  written("physics","Current Electricity","9801-B/C · 2023","Galvanometer 50Ω, 2mA full-scale. Convert to voltmeter (0-5V) and ammeter (0-5A).",
+    "Voltmeter: R = 2450Ω. Ammeter: S ≈ 0.02Ω."),
+  written("physics","Current Electricity","9614-A · 2023","Two moving-coil galvanometers — ratio of current and voltage sensitivity.",
+    "Current sensitivity ∝ NAB/k. Voltage sensitivity ∝ NAB/(kR)."),
+  written("physics","Current Electricity","9614-A · 2023","Battery emf 10V, internal 3Ω, current 0.5A. Find resistor and terminal voltage.",
+    "R = 17Ω. Terminal voltage V = 8.5V."),
+  written("physics","Current Electricity","9614-A · 2023","Variation of resistance with temperature. Define temperature coefficient.",
+    "R = R₀(1+αΔT); α = fractional change in resistance per degree."),
+  written("physics","Current Electricity","9801-C · 2023","Discuss situations describing failure of Ohm's law.",
+    "Non-ohmic devices: electrolytes, discharge tubes, diodes, transistors — V-I graph not linear."),
+  written("physics","Current Electricity","308-X · 2024-25","State two factors on which sensitivity of moving coil galvanometer depends.",
+    "Sensitivity ∝ NAB/k — depends on N, A, B, and k."),
+  written("physics","Current Electricity","308-X · 2024-25","Calculate number of electrons per second through 100W lamp at 200V.",
+    "I = P/V = 0.5A. n = I/e = 0.5/1.6×10⁻¹⁹ ≈ 3.13×10¹⁸ electrons/second."),
+  written("physics","Current Electricity","308-X · 2024-25","Using Kirchhoff's laws derive Wheatstone bridge condition. OR Define drift velocity.",
+    "P/Q = R/S. I = nAevd, so vd = I/(nAe)."),
+
+  // ===== MAGNETISM =====
+  mcq("physics","Magnetism","1108-X · 2024","Which is ferromagnetic?",
+    {A:"Aluminium", B:"Quartz", C:"Nickel", D:"Bismuth"}, "C"),
+  mcq("physics","Magnetism","1108-Y · 2024","Which is paramagnetic?",
+    {A:"Antimony", B:"Silver", C:"Marble", D:"Aluminium"}, "D"),
+  mcq("physics","Magnetism","1108-Z · 2024","Susceptibility is positive and small for:",
+    {A:"Paramagnetic", B:"Ferromagnetic", C:"Diamagnetic", D:"Non-magnetic"}, "A"),
+  mcq("physics","Magnetism","308-X · 2024-25","No force on current-carrying conductor when angle with B is:",
+    {A:"0°", B:"45°", C:"90°", D:"135°"}, "A"),
+  mcq("physics","Magnetism","308-X · 2024-25","Torque on magnet is maximum when θ =",
+    {A:"0°", B:"180°", C:"360°", D:"90°"}, "D"),
+  mcq("physics","Magnetism","308-X · 2024-25","SI unit of magnetic flux is:",
+    {A:"Weber", B:"Gauss", C:"Oersted", D:"Tesla"}, "A"),
+  mcq("physics","Magnetism","1105-A · 2020","Magnetic field inside solenoid is:",
+    {A:"Directly proportional to length", B:"Directly proportional to current", C:"Inversely proportional to turns", D:"Inversely proportional to current"}, "B"),
+
+  written("physics","Magnetism","1108 · 2024","What are magnetic lines of force? Why don't two such lines cross?",
+    "Field lines never cross because B has one unique direction at any given point."),
+  written("physics","Magnetism","9121 · 2023","State and explain Fleming's right-hand rule.",
+    "Thumb = velocity, forefinger = field, middle finger = induced current."),
+  written("physics","Magnetism","9121 · 2023","Why do two parallel conductors exert force on each other?",
+    "Each conductor's magnetic field exerts force (F=BIL) on the current in the other."),
+  written("physics","Magnetism","9121 · 2023","Maximum value of angle of dip and where does it occur?",
+    "90° at magnetic poles."),
+  written("physics","Magnetism","9614-A · 2023","Name elements of earth's magnetic field.",
+    "Declination, Dip/Inclination, Horizontal component Bₕ."),
+  written("physics","Magnetism","9801-B · 2023","What is Cyclotron? Construction, working, limitations. OR Ampere's Circuital Law; solenoid.",
+    "Cyclotron accelerates charged particles; fails at relativistic speeds. Ampere's law: ∮B·dl = μ₀I_enc. Solenoid: B = μ₀nI."),
+  written("physics","Magnetism","1108 · 2024","What is magnetic dipole? Derive torque on bar magnet. OR Force per unit length between parallel conductors.",
+    "τ = MB sinθ. F/L = μ₀I₁I₂/(2πd). One ampere: force 2×10⁻⁷ N/m."),
+  written("physics","Magnetism","1108 · 2024","Using Biot-Savart law, calculate B at centre of circular coil.",
+    "B = μ₀NI/(2R)."),
+  written("physics","Magnetism","9121 · 2023","Obtain expression for torque on rectangular current loop at angle θ.",
+    "τ = NIAB sinθ."),
+  written("physics","Magnetism","6001-A · 2022","Solenoid 2m, 3cm diameter, 5 layers, 1000 turns each, 5A. Find B at centre and ends.",
+    "B_centre = μ₀nI ≈ 1.57×10⁻² T. B_end = half ≈ 7.85×10⁻³ T."),
+  written("physics","Magnetism","6001-A · 2022","What are diamagnetic, paramagnetic and ferromagnetic substances? Properties.",
+    "Diamagnetic: weakly repelled (Bismuth). Paramagnetic: weakly attracted (Aluminium). Ferromagnetic: strongly attracted, retains magnetism (Iron, Nickel, Cobalt)."),
+  written("physics","Magnetism","308-X · 2024-25","Derive expression for force on current-carrying conductor. Cases when force is minimum and maximum.",
+    "F = BIL sinθ. Minimum (zero) when parallel to B. Maximum (BIL) when perpendicular to B."),
+  written("physics","Magnetism","308-X · 2024-25","What are dia, para and ferromagnetic substances? Properties.",
+    "Same as above."),
+
+  // ===== EMI & AC =====
+  mcq("physics","EMI & AC","1108-X · 2024","A transformer is used to change:",
+    {A:"High voltage DC to low voltage DC", B:"High voltage AC to low voltage AC", C:"Electrical to mechanical", D:"Mechanical to electrical"}, "B"),
+  mcq("physics","EMI & AC","1108-Y · 2024","A transformer steps up or steps down:",
+    {A:"AC only", B:"DC only", C:"Either", D:"AC mixed with DC"}, "A"),
+  mcq("physics","EMI & AC","1108-Z · 2024","Transformer core laminated to:",
+    {A:"Reduce magnetism", B:"Reduce eddy current losses", C:"Increase magnetic field", D:"Increase flux"}, "B"),
+  mcq("physics","EMI & AC","1105-A · 2020","For current in LCR circuit to be maximum, ω² =",
+    {A:"LC", B:"1/LC", C:"1/LC", D:"LC"}, "B"),
+
+  written("physics","EMI & AC","1108 · 2024","Self-induction is called inertia of electricity. Explain.",
+    "The self-induced emf always opposes any change in current — just as inertia opposes change in motion."),
+  written("physics","EMI & AC","1108-Z · 2024","Why are inductance coils made of copper?",
+    "Low resistivity minimises I²R energy loss."),
+  written("physics","EMI & AC","1108 · 2024","State Lenz's law and show it conserves energy.",
+    "Induced emf opposes change. Work done against opposition becomes electrical energy."),
+  written("physics","EMI & AC","1108 · 2024","1μF capacitor connected to E=200cos120πt. Find rms current.",
+    "Xc = 2653Ω. Erms = 141.4V. Irms = 53.3 mA."),
+  written("physics","EMI & AC","9121 · 2023","State principle of AC generator. Where does electric energy come from?",
+    "Principle: electromagnetic induction. Energy comes from mechanical work rotating the coil."),
+  written("physics","EMI & AC","9614-A · 2023","Define mutual induction and coefficient. OR 5μF capacitor on 50Hz — capacitive reactance.",
+    "Mutual induction: emf in one coil due to changing current in another. Xc = 636.6Ω."),
+  written("physics","EMI & AC","9614-A · 2023","What are eddy currents? Applications.",
+    "Circulating currents in bulk conductor. Uses: induction furnaces, electromagnetic braking, speedometers."),
+  written("physics","EMI & AC","9614-A · 2023","What is resonance in AC circuits? Derive resonant frequency.",
+    "At resonance XL = XC. f₀ = 1/(2π√(LC))."),
+  written("physics","EMI & AC","9121/9801 · 2023","AC generator — construction, working, expression for emf. OR Impedance and phase angle in LCR circuit.",
+    "e = e₀sinωt where e₀ = NBAω. Z = √(R²+(XL−XC)²), tanφ = (XL−XC)/R."),
+  written("physics","EMI & AC","9801-B/C · 2023","AC generator principle, construction, working. OR Average power in LCR circuit.",
+    "Pavg = Vrms·Irms·cosφ."),
+  written("physics","EMI & AC","6001-A · 2022","Differences between step-up and step-down transformer.",
+    "Step-up: Ns>Np, increases voltage, decreases current. Step-down: Ns<Np, decreases voltage, increases current."),
+  written("physics","EMI & AC","6001-A · 2022","State and explain Faraday's laws of EMI.",
+    "1) emf induced when flux changes. 2) ε = −dΦ/dt."),
+  written("physics","EMI & AC","6001-A · 2022","Magnetic field through 200 turns, area 0.04m², changes 0.1 to 0.04 Wb/m² in 0.02s. Find emf and current.",
+    "ΔΦ = 0.48 Wb. emf = 24V. I = 2.4A."),
+  written("physics","EMI & AC","308-X · 2024-25","Magnetic flux 5μWb linked with coil when current 1mA flows. Find self-inductance.",
+    "L = Φ/I = 5×10⁻⁶/1×10⁻³ = 5×10⁻³ H = 5mH."),
+  written("physics","EMI & AC","308-X · 2024-25","100 turns wound over solenoid 100cm length, 2cm radius, 600 turns. Calculate mutual inductance.",
+    "M = μ₀N₁N₂A/l ≈ 9.48×10⁻⁵ H ≈ 94.8 μH."),
+  written("physics","EMI & AC","308-X · 2024-25","Using phasor treatment, derive impedance and phase angle of LCR circuit.",
+    "Z=√(R²+(XL−XC)²), tanφ=(XL−XC)/R."),
+
+  // ===== EM WAVES =====
+  mcq("physics","EM Waves","1108-X · 2024","Which are not EM waves?",
+    {A:"Cosmic rays", B:"γ-rays", C:"β-rays", D:"X-rays"}, "C"),
+  mcq("physics","EM Waves","308-X · 2024-25","Dimensions of E/B are same as:",
+    {A:"Acceleration", B:"Velocity", C:"Charge", D:"Current"}, "B"),
+  tf("physics","EM Waves","6001-A · 2022","Ozone layer is present in stratosphere.", "A"),
+
+  written("physics","EM Waves","1108 · 2024","What is Maxwell's displacement current? Is it a source of magnetic field?",
+    "Displacement current = ε₀(dΦE/dt). Yes — it produces magnetic field."),
+  written("physics","EM Waves","1108-Z · 2024","How are infrared waves produced? Uses.",
+    "Produced by hot bodies and molecular vibrations. Uses: night-vision, therapeutic heating, remote controls."),
+  written("physics","EM Waves","9121 · 2023","Can EM wave be deflected by E or B field?",
+    "No — EM waves carry no net charge."),
+  written("physics","EM Waves","9121/9801 · 2023","What does EM wave consist of? Speed in vacuum depends on?",
+    "Mutually perpendicular E and B fields. c = 1/√(μ₀ε₀) — depends only on μ₀ and ε₀."),
+  written("physics","EM Waves","9121 · 2023","Write expression for speed of EM waves in free space.",
+    "c = 1/√(μ₀ε₀) ≈ 3×10⁸ m/s."),
+  written("physics","EM Waves","9614-A/9801 · 2023","Uses of UV rays.",
+    "Sterilisation, detecting forged documents, treating skin conditions."),
+  written("physics","EM Waves","9801-C · 2023","Write Maxwell's equation for steady electric field.",
+    "∮E·dl = 0."),
+  written("physics","EM Waves","6001-A · 2022","Give four properties of EM waves.",
+    "Transverse; travel at c in vacuum; carry energy and momentum; E and B perpendicular."),
+  written("physics","EM Waves","308-X · 2024-25","State four characteristics of EM waves.",
+    "Same as above."),
+
+  // ===== OPTICS =====
+  mcq("physics","Optics","1108-X · 2024","Which produces a plane wave front?",
+    {A:"Point source", B:"Line source", C:"Extended source", D:"None"}, "D"),
+  mcq("physics","Optics","1108-Y · 2024","Red light differs from blue light in:",
+    {A:"Speed", B:"Frequency", C:"Intensity", D:"Amplitude"}, "B"),
+  mcq("physics","Optics","1108-Y · 2024","Plane wavefront propagating in medium:",
+    {A:"Propagates parallel to itself", B:"Cannot propagate", C:"Changes to spherical", D:"Changes to cylindrical"}, "A"),
+  mcq("physics","Optics","1108-Z · 2024","For wave propagation, property independent of others:",
+    {A:"Velocity", B:"Wavelength", C:"Frequency", D:"All"}, "C"),
+  mcq("physics","Optics","1108-Z · 2024","Huygen's principle is used to:",
+    {A:"Obtain new wavefront", B:"Explain superposition", C:"Explain interference", D:"Explain polarisation"}, "A"),
+  mcq("physics","Optics","308-X · 2024-25","Velocity of light in medium of refractive index 1.5:",
+    {A:"4.5×10⁸", B:"3×10⁸", C:"2×10⁸", D:"1.5×10⁸"}, "C"),
+  mcq("physics","Optics","308-X · 2024-25","In compound microscope, distance between objective and eye lens:",
+    {A:"Fixed", B:"Variable", C:"Infinite", D:"1 metre"}, "B"),
+
+  written("physics","Optics","1108 · 2024","When does Snell's law of refraction fail?",
+    "Beyond critical angle (total internal reflection), and in anisotropic media."),
+  written("physics","Optics","1108 · 2024","For glass-air, critical angle C. Glass-water critical angle greater or less?",
+    "Greater — water is denser than air, so relative refractive index is smaller."),
+  written("physics","Optics","1108 · 2024","Ray incident on equilateral glass prism (μ=√3), parallel to base inside. Find angle of incidence.",
+    "i = 60°."),
+  written("physics","Optics","1108 · 2024","Why don't we observe diffraction from a wide slit?",
+    "Diffraction prominent only when slit width comparable to wavelength."),
+  written("physics","Optics","9121/9801 · 2023","How does refraction affect length of day?",
+    "Atmospheric refraction makes sun visible before actual sunrise and after actual sunset."),
+  written("physics","Optics","9121 · 2023","Ray incident on glass plate at polarising angle (μ=1.5). Find angle of refraction.",
+    "ip = tan⁻¹(1.5) ≈ 56.3°. Angle of refraction = 33.7°."),
+  written("physics","Optics","9121/9801 · 2023","Amplitude ratio 1:2. Find Imax/Imin.",
+    "9:1."),
+  written("physics","Optics","9801-B/C · 2023","Intensity ratio 25:9. Find amplitude ratio.",
+    "4:1."),
+  written("physics","Optics","9614-A · 2023","Prism μ=1.5, A=60°. Find minimum deviation and angle of incidence.",
+    "D ≈ 37.2°. i ≈ 48.6°."),
+  written("physics","Optics","9121/9801 · 2023","Yellow light diffraction — X-rays no pattern. (a) Value displayed by teacher? (b) Conditions for diffraction.",
+    "(a) Patience and clarity in teaching. (b) Slit size comparable to wavelength."),
+  written("physics","Optics","9614-A · 2023","Sushma buys camera with 'equivalent lens'. (a) What is equivalent lens? (b) Relation for power? (c) Shopkeeper's values.",
+    "(a) Single lens matching combination. (b) P = P₁+P₂. (c) Honest, fair dealing."),
+  written("physics","Optics","9801-B/C · 2023","Endoscopy — which principle is used?",
+    "Total internal reflection — used in optical fibres."),
+  written("physics","Optics","1108 · 2024","What is interference? Conditions for constructive/destructive. OR Compound microscope.",
+    "Constructive: path diff = nλ. Destructive: (n+½)λ. Compound microscope: M ≈ (L/f₀)×(D/fₑ)."),
+  written("physics","Optics","9801-B · 2023","Astronomical telescope — ray diagram, magnifying power at least distance. OR Fringe width in YDSE.",
+    "Fringe width β = λD/d. Telescope: M = −f₀/fₑ(1 + fₑ/D)."),
+  written("physics","Optics","9801-B/C · 2023","Define polarized and unpolarised light. Brewster's law. OR Compound microscope.",
+    "Brewster's law: tan(ip) = μ."),
+  written("physics","Optics","6001-A · 2022","Define scattering. Why sky appears blue?",
+    "Rayleigh scattering intensity ∝ 1/λ⁴ — blue scatters more."),
+  written("physics","Optics","6001-A · 2022","Owais — headlight glare. (a) Special cover? (d) Law relating refractive index.",
+    "(a) Polaroid/polarising filter. (d) Brewster's law: tan(ip) = μ."),
+  written("physics","Optics","6001-A · 2022","State Huygens' principle. Derive laws of reflection/refraction. OR Lens Maker's formula.",
+    "Huygens: every point on wavefront is source of secondary wavelets. Lens Maker: 1/f = (μ−1)(1/R₁ − 1/R₂)."),
+  written("physics","Optics","308-X · 2024-25","Magnifying power and length of astronomical telescope (f₀=144cm, fₑ=6cm).",
+    "M = 24. Length = 150cm."),
+  written("physics","Optics","308-X · 2024-25","Conditions for sustained interference.",
+    "Coherent sources, same frequency, comparable amplitudes, monochromatic light."),
+  written("physics","Optics","308-X · 2024-25","Refraction through prism — show δ = (i₁+i₂) − A.",
+    "Geometric derivation using triangle formed by refracting surfaces and ray path."),
+  written("physics","Optics","308-X · 2024-25","Four applications of optical fibers.",
+    "Telecommunication, endoscopy, sensors, decorative lighting."),
+  written("physics","Optics","308-X · 2024-25","State Huygens' principle and prove laws of refraction. OR Astronomical telescope at infinity.",
+    "Normal adjustment: M = −f₀/fₑ."),
+
+  // ===== DUAL NATURE =====
+  mcq("physics","Dual Nature","1108-X · 2024","Electron volt is unit of:",
+    {A:"Charge", B:"Momentum", C:"Potential difference", D:"Energy"}, "D"),
+  mcq("physics","Dual Nature","1108-Y · 2024","Minimum energy to remove electron is:",
+    {A:"Work function", B:"Kinetic energy", C:"Stopping potential", D:"Potential energy"}, "A"),
+  mcq("physics","Dual Nature","1108-Z · 2024","Unit of Planck's constant:",
+    {A:"Nm", B:"eV", C:"JS⁻¹", D:"JS"}, "D"),
+  mcq("physics","Dual Nature","1105-A · 2020","∫x²e^(x³)dx is equal to:",
+    {A:"(1/3)e^(x³)+C", B:"(1/3)e^(x²)+C", C:"(1/2)e^(x³)+C", D:"(1/2)e^(x²)+C"}, "A"),
+
+  written("physics","Dual Nature","1108 · 2024","Calculate de-Broglie equation for material particle.",
+    "λ = h/(mv) = h/p."),
+  written("physics","Dual Nature","9121 · 2023","What determines strength of photoelectric current?",
+    "Intensity of incident light for frequency above threshold."),
+  written("physics","Dual Nature","9121 · 2023","Effect of decrease in wavelength on photoelectron velocity?",
+    "Decreasing λ increases photon energy → higher velocity."),
+  written("physics","Dual Nature","9614-A · 2023","How does photocurrent change on decreasing wavelength?",
+    "Photocurrent tracks intensity; at fixed power, shorter wavelength means fewer photons/sec."),
+  written("physics","Dual Nature","9801-B/C · 2023","Calculate frequency of photon with energy 3.3×10⁻²⁰J.",
+    "ν = E/h ≈ 4.98×10¹³ Hz."),
+  written("physics","Dual Nature","9801-B/C · 2023","Find momentum of photon of wavelength 0.1Å.",
+    "p = h/λ = 6.63×10⁻²³ kg·m/s."),
+  written("physics","Dual Nature","9121 · 2023","Explain laws of photoelectric emission.",
+    "1) Current ∝ intensity. 2) Stopping potential depends on frequency. 3) Threshold frequency. 4) Instantaneous emission."),
+  written("physics","Dual Nature","9121/9614 · 2023","Photoelectric effect — Einstein's equation.",
+    "hν = φ₀ + KEmax."),
+  written("physics","Dual Nature","6001-A · 2022","Define threshold frequency.",
+    "Minimum frequency below which no photoemission occurs."),
+  written("physics","Dual Nature","308-X · 2024-25","Stopping potential and threshold frequency. OR Is photoelectric emission possible at all frequencies?",
+    "Stopping potential: retarding potential to stop fastest electrons. No — needs ν ≥ ν₀."),
+  written("physics","Dual Nature","308-X · 2024-25","de-Broglie wavelength of 0.3kg object moving at 6 m/s.",
+    "λ = h/mv ≈ 3.68×10⁻³⁴ m."),
+
+  // ===== ATOMS & NUCLEI =====
+  mcq("physics","Atoms & Nuclei","1108-X · 2024","In ₁₅P³⁰ → ₁₄Si³⁰ + X, X is:",
+    {A:"Neutron", B:"Proton", C:"Electron", D:"Positron"}, "D"),
+  mcq("physics","Atoms & Nuclei","1108-Y · 2024","Most abundant isotope of uranium:",
+    {A:"₉₂U²³⁸", B:"₉₂U²³⁵", C:"₉₂U²³⁴", D:"None"}, "A"),
+  mcq("physics","Atoms & Nuclei","1108-Z · 2024","In ₆C¹¹ → ₅B¹¹ + e⁰ + X, X is:",
+    {A:"Electron", B:"Proton", C:"Neutron", D:"Neutrino"}, "D"),
+  mcq("physics","Atoms & Nuclei","308-X · 2024-25","Hydrogen series in visible region:",
+    {A:"Lyman", B:"Paschen", C:"Balmer", D:"None"}, "C"),
+  mcq("physics","Atoms & Nuclei","308-X · 2024-25","Number of electrons in atom with atomic number Z:",
+    {A:"A−Z", B:"A+Z", C:"Z", D:"A"}, "C"),
+  mcq("physics","Atoms & Nuclei","1105-A · 2020","Average binding energy of nucleus:",
+    {A:"~8 MeV", B:"~8 eV", C:"~8 J", D:"~8 keV"}, "A"),
+
+  written("physics","Atoms & Nuclei","1108 · 2024","What are nuclear forces? State three properties.",
+    "Strongest force; short-range; charge-independent; saturating."),
+  written("physics","Atoms & Nuclei","1108 · 2024","Two significances of binding energy per nucleon curve.",
+    "Explains stability (peak at Fe/Ni); explains fission and fusion energy release."),
+  written("physics","Atoms & Nuclei","1108/9121 · 2024/2023","Bohr's model — radius of nth orbit of hydrogen.",
+    "rₙ = n²h²ε₀/(πme²) ∝ n²."),
+  written("physics","Atoms & Nuclei","9121 · 2023","Postulates of Bohr's model.",
+    "1) Stable orbits without radiating. 2) mvr = nh/2π. 3) hν = Eᵢ−E_f."),
+  written("physics","Atoms & Nuclei","9121 · 2023","Define binding energy. Curve between mass number and binding energy per nucleon.",
+    "BE = [Zmp + Nmn − M]c². Peaks near A≈56."),
+  written("physics","Atoms & Nuclei","9614-A · 2023","Hydrogen spectral series with least wavelength.",
+    "Lyman series (UV)."),
+  written("physics","Atoms & Nuclei","9614-A · 2023","What are isotopes? Examples.",
+    "Same Z, different A. Examples: ¹H, ²H, ³H."),
+  written("physics","Atoms & Nuclei","9614-A · 2023","Radioactive decay law — derive N = N₀e^(−λt).",
+    "−dN/dt ∝ N → integration gives exponential decay."),
+  written("physics","Atoms & Nuclei","9801-B/C · 2023","Alpha, beta and gamma decay.",
+    "α: He nucleus. β: electron/positron. γ: high-energy photon."),
+  written("physics","Atoms & Nuclei","6001-A · 2022","Define nuclear fission with example.",
+    "Heavy nucleus splits into lighter nuclei. U-235 + neutron → Ba + Kr + 3n + energy."),
+  written("physics","Atoms & Nuclei","308-X · 2024-25","Excitation potential vs ionization potential.",
+    "Excitation: energy to move to higher orbit. Ionization: energy to remove completely."),
+  written("physics","Atoms & Nuclei","308-X · 2024-25","Nuclear forces — characteristics.",
+    "Strongest, short-range, charge-independent, saturating."),
+
+  // ===== SEMICONDUCTORS =====
+  mcq("physics","Semiconductors","1108-X · 2024","Bond in silicon crystal:",
+    {A:"Ionic", B:"Metallic", C:"Covalent", D:"Van der Waals"}, "C"),
+  mcq("physics","Semiconductors","1108-Y · 2024","Forbidden energy gap in insulator:",
+    {A:"5 eV", B:"1 eV", C:"2 MeV", D:"10⁻³ eV"}, "A"),
+  mcq("physics","Semiconductors","1108-Z · 2024","Barrier potential of Si diode at room temp:",
+    {A:"0.3V", B:"0.7V", C:"1V", D:"2mV"}, "B"),
+  mcq("physics","Semiconductors","308-X · 2024-25","Forbidden gap in silicon:",
+    {A:"0.1 eV", B:"1.1 eV", C:"2.1 eV", D:"0.7 eV"}, "B"),
+  tf("physics","Semiconductors","6001-A · 2022","P-type semiconductor is electrically neutral.", "A"),
+  mcq("physics","Semiconductors","1105-A · 2020","OR gate output is 1:",
+    {A:"If either input is zero", B:"Only if both are 1", C:"If both are zero", D:"If either or both are 1"}, "D"),
+
+  written("physics","Semiconductors","1108 · 2024","Forward and reverse bias characteristic curve of p-n junction.",
+    "Forward: current rises after threshold (~0.7V). Reverse: small leakage current."),
+  written("physics","Semiconductors","1108 · 2024","Intrinsic vs extrinsic semiconductors.",
+    "Intrinsic: pure, equal e⁻ and holes. Extrinsic: doped, majority carriers."),
+  written("physics","Semiconductors","9121 · 2023","Intrinsic vs p-type semiconductor. Why is p-type neutral?",
+    "p-type doped with trivalent impurity. Neutral overall — only bonding arrangement changes."),
+  written("physics","Semiconductors","9121 · 2023","Junction diode formation. Full-wave rectifier.",
+    "p-type and n-type fused together. Full-wave rectifier uses centre-tapped transformer and two diodes."),
+  written("physics","Semiconductors","9614-A · 2023","Full-wave rectifier — circuit diagram, working, waveforms.",
+    "Output is positive humps from both halves of AC cycle."),
+  written("physics","Semiconductors","9614-A · 2023","AND gate — symbol, Boolean expression, truth table.",
+    "Y = A·B — output HIGH only when both inputs are HIGH."),
+  written("physics","Semiconductors","9801-B/C · 2023","n-p-n transistor — circuit diagram and action.",
+    "Emitter-base forward biased, base-collector reverse biased. Small base current controls larger collector current."),
+  written("physics","Semiconductors","6001-A · 2022","p-type vs n-type extrinsic semiconductor.",
+    "n-type: pentavalent dopant, excess electrons. p-type: trivalent dopant, excess holes."),
+  written("physics","Semiconductors","6001-A · 2022","OR gate — truth table, logic symbol, Boolean expression.",
+    "Y = A + B — output HIGH if either or both inputs are HIGH."),
+  written("physics","Semiconductors","308-X · 2024-25","Depletion region in junction diode — formation.",
+    "Region depleted of free carriers due to diffusion and recombination across junction."),
+  written("physics","Semiconductors","308-X · 2024-25","Forward characteristics of p-n diode.",
+    "Current negligible until knee voltage, then rises sharply."),
+
+  // ===== COMMUNICATION SYSTEMS =====
+  written("physics","Communication Systems","9121 · 2023","Define amplitude modulation. Factors justifying need for modulation.",
+    "AM: carrier amplitude varied with signal. Needed for: antenna size, avoiding interference, long-distance transmission."),
+  written("physics","Communication Systems","9614-A/9801 · 2023","What is Demodulation? Block diagram for AM detection.",
+    "Extracting original message signal from modulated carrier."),
+  written("physics","Communication Systems","9121 · 2023","Modulation index and importance.",
+    "ma = Am/Ac. Should stay ≤1 in AM to avoid distortion."),
+  written("physics","Communication Systems","9121 · 2023","Bandwidth — expression in AM.",
+    "Bandwidth = 2fm."),
+  written("physics","Communication Systems","9614-A · 2023","Define Frequency Modulation.",
+    "Carrier frequency varied with signal amplitude."),
+  written("physics","Communication Systems","9121/9614 · 2023","Sky wave and space wave propagation.",
+    "Sky wave: reflected off ionosphere. Space wave: line-of-sight."),
+  written("physics","Communication Systems","6001-A · 2022","Why are ground waves not suitable for high frequency?",
+    "Ground waves get absorbed rapidly at high frequencies."),
+  written("physics","Communication Systems","6001-A · 2022","Block diagram of data transmission and reception.",
+    "Transmitter: source → transducer → modulator → amplifier → antenna. Receiver: antenna → amplifier → demodulator → transducer → destination."),
+];
+
+/* ============================================================
+   CHEMISTRY — COMPLETE
+   ============================================================ */
+const CHEMISTRY_TOPICS = ["Solutions","Electrochemistry","Chemical Kinetics","Solid State","Surface Chemistry","p-Block","d-Block","Coordination Compounds","Haloalkanes & Haloarenes","Alcohols & Phenols","Aldehydes & Ketones","Carboxylic Acids","Amines","Biomolecules","Polymers"];
+
+const CHEMISTRY_QUESTIONS = [
+  // ===== SOLUTIONS =====
+  mcq("chemistry","Solutions","1109-X · 2024","Concentration independent of temperature:",
+    {A:"Molarity", B:"Normality", C:"Formality", D:"Molality"}, "D"),
+  mcq("chemistry","Solutions","1109-X · 2024","Aqueous glucose freezes. Crystals of which separate first?",
+    {A:"Glucose", B:"Water", C:"Both", D:"None"}, "B"),
+  mcq("chemistry","Solutions","1109-Z · 2024","Molarity of 900g water:",
+    {A:"50M", B:"55.5M", C:"5M", D:"Cannot be calculated"}, "B"),
+  mcq("chemistry","Solutions","1109-Z · 2024","Depression in freezing point for 1M urea, glucose, NaCl ratio:",
+    {A:"1:2:3", B:"3:2:2", C:"1:1:2", D:"None"}, "C"),
+  mcq("chemistry","Solutions","1109-Y · 2024","Molarity of HCl if density 1.17 g/cc:",
+    {A:"36.5", B:"18.5", C:"32.05", D:"42.10"}, "C"),
+  mcq("chemistry","Solutions","1109-Y · 2024","Which is a colligative property?",
+    {A:"Boiling point", B:"Freezing point", C:"Osmotic pressure", D:"Vapour pressure"}, "C"),
+
+  written("chemistry","Solutions","1109-X · 2024","Define mole fraction, molality, molarity. Calculate mole fraction of 20% ethylene glycol.",
+    "X_glycol ≈ 0.0677."),
+  written("chemistry","Solutions","1109-X · 2024 OR","Define elevation in boiling point. Calculate molecular mass of non-volatile solute.",
+    "ΔTb = Kb × m. M = (Kb × W₂ × 1000)/(ΔTb × W₁)."),
+  written("chemistry","Solutions","9122-Y · 2023","Define elevation in B.P. Calculate molecular mass.",
+    "Same as above."),
+  written("chemistry","Solutions","9122-Y · 2023 OR","Define Osmotic Pressure. Berkeley-Hartley method.",
+    "π = CRT. Uses porous membrane with piston to measure π."),
+
+  // ===== ELECTROCHEMISTRY =====
+  mcq("chemistry","Electrochemistry","1109-X · 2024","Amount of ion liberated during electrolysis does NOT depend on:",
+    {A:"Current strength", B:"Conductance of solution", C:"Time", D:"Electrochemical equivalent"}, "B"),
+  mcq("chemistry","Electrochemistry","1109-Z · 2024","In electrolytic cell, flow of electrons is:",
+    {A:"Cathode to anode in solution", B:"Cathode to anode through external supply", C:"Cathode to anode through internal supply", D:"Anode to cathode through external supply"}, "D"),
+  mcq("chemistry","Electrochemistry","1109-Y · 2024","Potential of hydrogen electrode at pH=10:",
+    {A:"0.59V", B:"0.00V", C:"-0.59V", D:"-0.059V"}, "C"),
+
+  written("chemistry","Electrochemistry","1109-X · 2024","Define conductivity and molar conductivity.",
+    "Conductivity (κ): conductance of 1cm³ solution (S cm⁻¹). Molar conductivity (Λm): κ/c (S cm² mol⁻¹)."),
+  written("chemistry","Electrochemistry","1109-X · 2024","Define Kohlrausch's law. Applications: λ° for weak electrolyte, degree of dissociation.",
+    "Λ° = Σ λ°. α = Λ/Λ°."),
+  written("chemistry","Electrochemistry","1109-X · 2024 OR","What are fuel cells? Describe H₂−O₂ fuel cell.",
+    "Anode: 2H₂+4OH⁻→4H₂O+4e⁻, Cathode: O₂+2H₂O+4e⁻→4OH⁻."),
+  written("chemistry","Electrochemistry","9122-Y · 2023","State Faraday's 1st law of electrolysis.",
+    "Mass deposited ∝ quantity of electricity passed."),
+  written("chemistry","Electrochemistry","6002-B · 2022","What is Molar Conductivity? Give units.",
+    "Λm = κ/c. Units: S cm² mol⁻¹."),
+  written("chemistry","Electrochemistry","6002-B · 2022 OR","Functions of salt bridge.",
+    "Completes circuit, prevents mixing, maintains neutrality."),
+  written("chemistry","Electrochemistry","6002-C · 2022","Reactions at anode and cathode of dry cell.",
+    "Anode: Zn → Zn²⁺ + 2e⁻. Cathode: 2MnO₂+2NH₄⁺+2e⁻→Mn₂O₃+2NH₃+H₂O."),
+  written("chemistry","Electrochemistry","6002-C · 2022 OR","Define specific conductivity. Units.",
+    "S cm⁻¹."),
+
+  // ===== CHEMICAL KINETICS =====
+  mcq("chemistry","Chemical Kinetics","1109-X · 2024","Collision theory applies to:",
+    {A:"First order", B:"Zero order", C:"Bimolecular", D:"Intramolecular"}, "C"),
+  mcq("chemistry","Chemical Kinetics","1109-Z · 2024","Time for 100% completion of zero order reaction:",
+    {A:"2K/a", B:"a/2K", C:"a/K", D:"aK"}, "C"),
+  mcq("chemistry","Chemical Kinetics","1109-Y · 2024","Rate constant 175 L mol⁻¹ sec⁻¹. Order:",
+    {A:"First", B:"Second", C:"Third", D:"Zero"}, "B"),
+
+  written("chemistry","Chemical Kinetics","1109-X · 2024","Difference between Rate Law and Law of Mass Action.",
+    "Rate law: experimentally determined. Law of mass action: uses stoichiometric coefficients."),
+  written("chemistry","Chemical Kinetics","1109-X · 2024","Why molecularity only for elementary reactions and order for both?",
+    "Molecularity: number of molecules in elementary step. Order: experimentally determined."),
+  written("chemistry","Chemical Kinetics","1109-X · 2024","Average rate vs instantaneous rate.",
+    "Average: ΔC/Δt. Instantaneous: slope of tangent."),
+  written("chemistry","Chemical Kinetics","1109-Z · 2024","Effect of temperature on rate of reaction.",
+    "Rate increases with temperature (rate doubles/triples per 10°C rise)."),
+  written("chemistry","Chemical Kinetics","9122-Y · 2023","Define order of reaction.",
+    "Sum of powers of concentration terms in rate law."),
+  written("chemistry","Chemical Kinetics","9122-Y · 2023","Calculate half-life for 1st order reaction.",
+    "t₁/₂ = 0.693/k."),
+  written("chemistry","Chemical Kinetics","6002-B · 2022","Define Activation Energy. Effect of catalyst.",
+    "Catalyst lowers activation energy."),
+  written("chemistry","Chemical Kinetics","6002-B · 2022 OR","Order vs Molecularity.",
+    "Order: experimental, can be fractional. Molecularity: theoretical, integer."),
+  written("chemistry","Chemical Kinetics","6002-C · 2022","Factors affecting rate. Temperature coefficient.",
+    "Concentration, temp, catalyst, surface area. Temp coefficient: rate ratio per 10°C."),
+  written("chemistry","Chemical Kinetics","6002-C · 2022 OR","Define Rate Constant.",
+    "Proportionality constant in rate law. Depends only on temperature."),
+  written("chemistry","Chemical Kinetics","1102-A · 2020","Define rate of reaction and rate constant.",
+    "Rate: change in concentration per unit time. Rate constant: proportionality in rate law."),
+
+  // ===== SOLID STATE =====
+  mcq("chemistry","Solid State","9615-C · 2023","Define Unit Cell.",
+    {A:"Smallest repeating unit", B:"Crystal system", C:"Space lattice", D:"None"}, "A"),
+  mcq("chemistry","Solid State","9122-Y · 2023","Define Unit Cell.",
+    {A:"Smallest repeating unit", B:"Crystal system", C:"Space lattice", D:"None"}, "A"),
+  mcq("chemistry","Solid State","9802-B · 2023","What is face centred cubic?",
+    {A:"Atoms at corners", B:"Atoms at corners and face centres", C:"Atoms at corners and body centre", D:"Atoms at edges"}, "B"),
+  mcq("chemistry","Solid State","9802-C · 2023","What is tetrahedral void?",
+    {A:"Void between 3 atoms", B:"Void between 4 atoms", C:"Void between 6 atoms", D:"Void between 2 atoms"}, "B"),
+  mcq("chemistry","Solid State","1102-A · 2020","Fourteen types of space lattices are called:",
+    {A:"Bravais lattices", B:"Unit cells", C:"Crystal systems", D:"Space groups"}, "A"),
+
+  written("chemistry","Solid State","9122-Y · 2023","Explain Frenkel defect.",
+    "Ion moves from lattice position to interstitial site. Common in AgBr, ZnS."),
+  written("chemistry","Solid State","6002-B · 2022","What is Schottky defect?",
+    "Equal numbers of cations and anions missing from lattice sites. Decreases density."),
+  written("chemistry","Solid State","6002-B · 2022","What is Pyroelectricity? Give example.",
+    "Crystals generating voltage when heated/cooled. Example: tourmaline."),
+  written("chemistry","Solid State","6002-C · 2022","Why Schottky defect lowers density but Frenkel doesn't?",
+    "Schottky: atoms missing → mass decreases. Frenkel: atom moves to interstitial → mass unchanged."),
+  written("chemistry","Solid State","6002-C · 2022","What is ferromagnetism? Give examples.",
+    "Permanent magnetism due to aligned domains. Fe, Ni, Co."),
+
+  // ===== SURFACE CHEMISTRY =====
+  mcq("chemistry","Surface Chemistry","9802-B · 2023","Liquid-liquid colloidal dispersion:",
+    {A:"Emulsion", B:"Foam", C:"Sol", D:"Gel"}, "A"),
+  mcq("chemistry","Surface Chemistry","9802-C · 2023","Colloidal dispersion of liquid in solid:",
+    {A:"Gel", B:"Sol", C:"Emulsion", D:"Foam"}, "A"),
+  mcq("chemistry","Surface Chemistry","6002-B · 2022","Freundlich adsorption isotherm:",
+    {A:"x/m = kP^(1/n)", B:"x/m = kP", C:"x/m = k/P", D:"x/m = kP^n"}, "A"),
+  mcq("chemistry","Surface Chemistry","1102-A · 2020","Colloidal dispersion of liquid in gas:",
+    {A:"Aerosol", B:"Foam", C:"Emulsion", D:"Sol"}, "A"),
+  mcq("chemistry","Surface Chemistry","5002-B · 2021","Positively charged sol:",
+    {A:"Haemoglobin", B:"As₂S₃", C:"Clay", D:"Gold sol"}, "A"),
+
+  written("chemistry","Surface Chemistry","9122-Y · 2023","Explain Tyndall effect.",
+    "Scattering of light by colloidal particles."),
+
+  // ===== p-BLOCK =====
+  mcq("chemistry","p-Block","1109-X · 2024","Transition metal in highest oxidation state behaves as:",
+    {A:"Chelating agent", B:"Central metal", C:"Oxidising agent", D:"Reducing agent"}, "C"),
+
+  written("chemistry","p-Block","1109-X · 2024","How is K₂Cr₂O₇ prepared from chromite ore? Three oxidising properties.",
+    "Chromite fused with NaOH/KOH → chromate → acidify → dichromate. Oxidises Fe²⁺→Fe³⁺, I⁻→I₂, H₂S→S."),
+  written("chemistry","p-Block","9122-Y · 2023","Give electronic configuration of group 15 elements.",
+    "ns² np³."),
+  written("chemistry","p-Block","9122-Y · 2023","Three oxidising properties of K₂Cr₂O₇.",
+    "Same as above."),
+  written("chemistry","p-Block","9122-Y · 2023","Oxidation states of group 16 elements.",
+    "-2, +2, +4, +6."),
+  written("chemistry","p-Block","9122-Y · 2023 OR","Haber's process for NH₃ manufacture.",
+    "N₂+3H₂ ⇌ 2NH₃. Conditions: 200 atm, 450°C, Fe catalyst."),
+
+  // ===== d-BLOCK =====
+  mcq("chemistry","d-Block","1109-Y · 2024","Maximum oxidation state of osmium:",
+    {A:"+6", B:"+7", C:"+8", D:"+5"}, "C"),
+  mcq("chemistry","d-Block","1109-Z · 2024","KMnO₄ on heating gives:",
+    {A:"K₂MnO₄+MnO₂+O₂", B:"K₂MnO₃+MnO₂+O₂", C:"K₂O+MnO₂+O₂", D:"None"}, "A"),
+
+  written("chemistry","d-Block","1109-X · 2024","Magnetic behaviour and oxidation states of transition metals.",
+    "Paramagnetism due to unpaired d-electrons. Variable oxidation states."),
+  written("chemistry","d-Block","9122-Y · 2023","Define d-Block elements.",
+    "Elements where last electron enters d-orbital."),
+  written("chemistry","d-Block","9122-Y · 2023 OR","Why d-block elements form complexes?",
+    "Small size, high charge density, vacant d-orbitals."),
+  written("chemistry","d-Block","6002-B · 2022","Why transition metals act as catalysts?",
+    "Variable oxidation states, ability to form complexes, vacant d-orbitals."),
+  written("chemistry","d-Block","6002-C · 2022","Transition metals form interstitial compounds. Why?",
+    "Vacant d-orbitals accommodate small atoms in interstices."),
+
+  // ===== COORDINATION COMPOUNDS =====
+  mcq("chemistry","Coordination Compounds","9802-A · 2023","IUPAC of K₄[Fe(CN)₆]:",
+    {A:"Potassium ferrocyanide", B:"Potassium ferricyanide", C:"Potassium hexacyanoferrate(II)", D:"None"}, "C"),
+  mcq("chemistry","Coordination Compounds","9122-Y · 2023","IUPAC of [Cu(NH₃)₄]SO₄:",
+    {A:"Tetraamminecopper(II) sulphate", B:"Tetraamminecopper(I) sulphate", C:"Copper tetraammine sulphate", D:"None"}, "A"),
+  mcq("chemistry","Coordination Compounds","6002-A · 2022","Benzamide with POCl₃ gives:",
+    {A:"Aniline", B:"Benzonitrile", C:"Chlorobenzene", D:"Benzylamine"}, "B"),
+  mcq("chemistry","Coordination Compounds","6002-B · 2022","IUPAC of K₄[Fe(CN)₆]:",
+    {A:"Potassium ferrocyanide", B:"Potassium ferricyanide", C:"Potassium hexacyanoferrate(II)", D:"Potassium hexacyanoferrate(III)"}, "C"),
+  mcq("chemistry","Coordination Compounds","5002-B · 2021","Oxidation number of Co in [CoBr₂(CN)₂]⁺:",
+    {A:"+2", B:"+3", C:"+1", D:"+4"}, "B"),
+
+  written("chemistry","Coordination Compounds","1109-X · 2024","What are didentate and ambidentate ligands?",
+    "Didentate: two donor atoms. Ambidentate: can bind through different atoms."),
+  written("chemistry","Coordination Compounds","1109-X · 2024","IUPAC names: [CrCl₂(en)(NH₃)₂]⁺ and K₃[Fe(CN)₆].",
+    "Diamminechlorido(ethylenediamine)chromium(III) ion. Potassium hexacyanoferrate(III)."),
+  written("chemistry","Coordination Compounds","1109-X · 2024","Role in biological and medicinal chemistry.",
+    "Haemoglobin (O₂ transport), Chlorophyll (photosynthesis), Cisplatin (anticancer)."),
+  written("chemistry","Coordination Compounds","9122-Y · 2023","Define Ligand and types.",
+    "Monodentate, bidentate, polydentate."),
+  written("chemistry","Coordination Compounds","9122-Y · 2023 OR","What is Linkage Isomerism? Example.",
+    "[Co(NH₃)₅NO₂]²⁺ and [Co(NH₃)₅ONO]²⁺."),
+  written("chemistry","Coordination Compounds","6002-B · 2022","What is geometrical isomerism? Example.",
+    "[Pt(NH₃)₂Cl₂] cis/trans."),
+  written("chemistry","Coordination Compounds","6002-C · 2022","What is linkage isomerism? Example.",
+    "Same as above."),
+
+  // ===== ALCOHOLS & PHENOLS =====
+  mcq("chemistry","Alcohols & Phenols","1109-X · 2024","Strongest acid among:",
+    {A:"HC≡CH", B:"C₆H₆", C:"C₂H₆", D:"CH₃OH"}, "A"),
+  mcq("chemistry","Alcohols & Phenols","1109-Y · 2024","Which is anti-freeze in radiators?",
+    {A:"Methyl alcohol", B:"Ethylene glycol", C:"Nitrophenol", D:"Ethyl alcohol"}, "B"),
+  mcq("chemistry","Alcohols & Phenols","9122-Y · 2023","Phenols are:",
+    {A:"Basic", B:"Acidic", C:"Neutral", D:"None"}, "B"),
+  mcq("chemistry","Alcohols & Phenols","6002-B · 2022","Arrange decreasing acidic strength: CH₃OH, H₂O, C₆H₅OH.",
+    {A:"C₆H₅OH > H₂O > CH₃OH", B:"CH₃OH > H₂O > C₆H₅OH", C:"H₂O > C₆H₅OH > CH₃OH", D:"C₆H₅OH > CH₃OH > H₂O"}, "A"),
+  mcq("chemistry","Alcohols & Phenols","6002-C · 2022","Order of dehydration of alcohols:",
+    {A:"3°>2°>1°", B:"1°>2°>3°", C:"2°>3°>1°", D:"1°=2°=3°"}, "A"),
+  mcq("chemistry","Alcohols & Phenols","2002-A · 2020","Phenol + Br₂ in CS₂ gives:",
+    {A:"o-bromophenol", B:"m-bromophenol", C:"o- and p-bromophenol", D:"2,4,6-tribromophenol"}, "C"),
+
+  written("chemistry","Alcohols & Phenols","1109-X · 2024","Why are alcohols less acidic than water?",
+    "Alkoxide ion less stabilised by solvation than OH⁻."),
+  written("chemistry","Alcohols & Phenols","1109-X · 2024","What are phenols? Difference from aromatic alcohols.",
+    "Phenols: −OH directly on benzene ring. Aromatic alcohols: −OH on side chain."),
+  written("chemistry","Alcohols & Phenols","9122-Y · 2023","Nitration of phenol with conc. HNO₃/H₂SO₄.",
+    "Gives 2,4,6-trinitrophenol (picric acid)."),
+
+  // ===== HALOALKANES & HALOARENES =====
+  mcq("chemistry","Haloalkanes & Haloarenes","1109-X · 2024","SN2 reactions involve:",
+    {A:"Carbocation formation", B:"Racemic mixture", C:"Inversion of configuration", D:"Retention"}, "C"),
+  mcq("chemistry","Haloalkanes & Haloarenes","1109-Z · 2024","Highest dipole moment among:",
+    {A:"CHCl", B:"CHCl₂", C:"CHCl₃", D:"CCl₄"}, "C"),
+  mcq("chemistry","Haloalkanes & Haloarenes","1109-Y · 2024","Ease of dehydrohalogenation:",
+    {A:"3°<2°<1°", B:"3°>2°>1°", C:"3°<2°>1°", D:"3°>2°<1°"}, "B"),
+  tf("chemistry","Haloalkanes & Haloarenes","6002-B · 2022","CH₃−CH=CH₂ + HBr (peroxide) → CH₃−CH(Br)−CH₃ is major.", "A"),
+
+  written("chemistry","Haloalkanes & Haloarenes","1109-X · 2024","Why are haloarenes less reactive than haloalkanes?",
+    "C−X bond has partial double bond character due to resonance."),
+  written("chemistry","Haloalkanes & Haloarenes","1109-X · 2024","Convert ethyl bromide to ethane, ethoxyethane, ethanenitrile.",
+    "+ Zn/HCl → ethane. + sodium ethoxide → ethoxyethane. + KCN → ethanenitrile."),
+  written("chemistry","Haloalkanes & Haloarenes","9122-Y · 2023","Define Haloalkanes.",
+    "Halogen attached to sp³ carbon. R−X."),
+  written("chemistry","Haloalkanes & Haloarenes","9122-Y · 2023","Uses of Chloroform.",
+    "Solvent, production of refrigerants."),
+
+  // ===== AMINES =====
+  mcq("chemistry","Amines","1109-X · 2024","Weakest base among:",
+    {A:"Dimethylamine", B:"Aniline", C:"Methylamine", D:"Ethylamine"}, "B"),
+  mcq("chemistry","Amines","1109-Y · 2024","Strongest base in aqueous solution:",
+    {A:"Methylamine", B:"Trimethylamine", C:"Aniline", D:"Dimethylamine"}, "A"),
+  mcq("chemistry","Amines","1109-Z · 2024","Strongest base:",
+    {A:"C₆H₅NH₂", B:"CH₂=CHCH₂NH₂", C:"HC≡CCH₂NH₂", D:"CH₃CH₂CH₂NH₂"}, "D"),
+  tf("chemistry","Amines","9122-Y · 2023","Primary amines give carbylamine reaction.", "A"),
+  tf("chemistry","Amines","1102-A · 2020","Carbylamine reaction is given by secondary amines.", "B"),
+
+  written("chemistry","Amines","1109-X · 2024","What is diazotisation?",
+    "Primary aromatic amine + NaNO₂+HCl at 0-5°C → diazonium salt."),
+  written("chemistry","Amines","1109-X · 2024","What is Hinsberg's reagent? Distinguish 1°,2°,3° amines.",
+    "Benzenesulphonyl chloride. 1°: soluble product. 2°: insoluble. 3°: no reaction."),
+  written("chemistry","9122-Y · 2023","How is Benzene diazonium chloride prepared?",
+    "Aniline + NaNO₂ + HCl at 0-5°C → C₆H₅N₂⁺Cl⁻."),
+  written("chemistry","9122-Y · 2023 OR","What are Amines? Classification.",
+    "1°: RNH₂, 2°: R₂NH, 3°: R₃N."),
+
+  // ===== BIOMOLECULES =====
+  mcq("chemistry","Biomolecules","1109-X · 2024","Human body does not produce:",
+    {A:"Enzymes", B:"DNA", C:"Vitamins", D:"Hormones"}, "C"),
+  mcq("chemistry","Biomolecules","1109-X · 2024","Adenosine is:",
+    {A:"Nucleotide", B:"Nucleoside", C:"Purine base", D:"Pyrimidine base"}, "B"),
+  mcq("chemistry","Biomolecules","1109-Z · 2024","Vitamin B₁ deficiency causes:",
+    {A:"Convulsion", B:"Beri-Beri", C:"Cheilosis", D:"Sterility"}, "B"),
+  mcq("chemistry","Biomolecules","1109-Y · 2024","Antibodies are:",
+    {A:"Carbohydrates", B:"Proteins", C:"Lipids", D:"Enzymes"}, "B"),
+  mcq("chemistry","Biomolecules","1109-Y · 2024","Vitamin A is:",
+    {A:"Ascorbic acid", B:"Retinol", C:"Calciferol", D:"Thiamine"}, "B"),
+  mcq("chemistry","Biomolecules","9122-Y · 2023","Citrus fruits have:",
+    {A:"Vitamin A", B:"Vitamin B", C:"Vitamin C", D:"Vitamin D"}, "D"),
+  mcq("chemistry","Biomolecules","9615-C · 2023","Disaccharide in milk:",
+    {A:"Sucrose", B:"Maltose", C:"Lactose", D:"Cellobiose"}, "C"),
+  mcq("chemistry","Biomolecules","1102-A · 2020","Water soluble vitamin:",
+    {A:"Vitamin E", B:"Vitamin K", C:"Vitamin A", D:"Vitamin B"}, "D"),
+  tf("chemistry","Biomolecules","5002-B · 2021","Out of sucrose and maltose, sucrose is a reducing sugar.", "B"),
+
+  written("chemistry","Biomolecules","1109-X · 2024","Two main functions of carbohydrates in plants.",
+    "Energy storage (starch) and structural support (cellulose)."),
+  written("chemistry","Biomolecules","1109-X · 2024","What are α-amino acids? Relation to proteins? Structures.",
+    "Glycine: NH₂−CH₂−COOH. Alanine: CH₃−CH(NH₂)−COOH."),
+  written("chemistry","Biomolecules","9122-Y · 2023","Define Carbohydrates and classification.",
+    "Mono-, oligo-, polysaccharides."),
+  written("chemistry","Biomolecules","9122-Y · 2023 OR","What are Enzymes? Importance.",
+    "Biological catalysts. Digestion, respiration, metabolism."),
+  written("chemistry","Biomolecules","9122-Y · 2023","Define Analgesics, Antiseptics, Antibiotics.",
+    "Analgesics: pain relief. Antiseptics: kill microbes on living tissue. Antibiotics: kill/inhibit microorganisms."),
+
+  // ===== POLYMERS =====
+  mcq("chemistry","Polymers","1102-A · 2020","Which is not thermoplastic?",
+    {A:"Polythene", B:"Teflon", C:"Nylon-6,6", D:"Bakelite"}, "D"),
+
+  written("chemistry","Polymers","9122-Y · 2023","What are Polymers? Classification by structure.",
+    "Linear, branched, cross-linked."),
+  written("chemistry","Polymers","9122-Y · 2023 OR","Preparation and uses of polythene.",
+    "Polymerisation of ethene. Uses: carry bags, packaging."),
+  written("chemistry","Polymers","9122-Y · 2023 OR","Why detergents preferred over soaps?",
+    "Work in hard water, better cleaning, more soluble."),
+
+  // ===== CARBOXYLIC ACIDS =====
+  mcq("chemistry","Carboxylic Acids","6002-B · 2022","IUPAC of HOOC−CH₂−CH(COOH)−COOH:",
+    {A:"Propane-1,2,3-tricarboxylic acid", B:"Butane-1,2,4-tricarboxylic acid", C:"Propane-1,2,3-trioic acid", D:"None"}, "A"),
+
+  written("chemistry","Carboxylic Acids","1109-X · 2024","Formic acid is stronger acid than acetic acid. Explain.",
+    "Formic acid has no alkyl group, so carboxylate ion is more stabilised."),
+  written("chemistry","Carboxylic Acids","9122-Y · 2023","Convert to benzoic acid: ethyl benzene, acetophenone, bromobenzene.",
+    "Oxidation with KMnO₄. Grignard → CO₂ → H₃O⁺."),
+  written("chemistry","Carboxylic Acids","9122-Y · 2023","Account: meta substitution in benzoic acid; chloroacetic acid stronger than acetic.",
+    "−COOH is meta-directing. Cl is electron-withdrawing."),
+
+  // ===== ALDEHYDES & KETONES =====
+  mcq("chemistry","Aldehydes & Ketones","9122-Y · 2023","Aldehydes have:",
+    {A:">C=O group", B:"-CHO group", C:"-OH group", D:"-O- group"}, "B"),
+  mcq("chemistry","Aldehydes & Ketones","9615-C · 2023","Silver mirror test is for:",
+    {A:"Aldehydes", B:"Thioalcohols", C:"Acids", D:"Ethers"}, "A"),
+  mcq("chemistry","Aldehydes & Ketones","6002-B · 2022","Acetaloxime + P₂O₅ gives:",
+    {A:"Methyl cyanide", B:"Methyl cyanate", C:"Ethyl cyanide", D:"None"}, "A"),
+
+  written("chemistry","Aldehydes & Ketones","1109-X · 2024","Describe esterification, Cannizzaro, cross aldol, decarboxylation.",
+    "Esterification: acid + alcohol → ester. Cannizzaro: aldehyde without α-H → alcohol+acid. Cross aldol: different carbonyls. Decarboxylation: removal of CO₂."),
+  written("chemistry","Aldehydes & Ketones","1109-X · 2024 OR","Five methods for preparation of aldehydes. Distinguish using Tollen's and Fehling's.",
+    "Methods: oxidation of 1° alcohols, Rosenmund, ozonolysis, hydrolysis of gem-dihalides, oxidation of methylbenzene. Tollen's: Ag mirror. Fehling's: red Cu₂O precipitate."),
+  written("chemistry","Aldehydes & Ketones","9122-Y · 2023 OR","Aldol condensation and Cannizzaro's reaction.",
+    "Aldol: aldehydes with α-H give β-hydroxy carbonyl. Cannizzaro: aldehydes without α-H."),
+];
+
+/* ============================================================
+   MATHEMATICS — COMPLETE
+   ============================================================ */
+const MATH_TOPICS = ["Relations & Functions","Inverse Trigonometry","Matrices","Determinants","Continuity & Differentiability","Applications of Derivatives","Integrals","Differential Equations","Vector Algebra","3D Geometry","Linear Programming","Probability"];
+
+const MATH_QUESTIONS = [
+  // ===== 2025 PAPERS =====
+  mcq("mathematics","Determinants","307-X · 2025","If |x 4; -2 3| = 17, x is:",
+    {A:"6", B:"-6", C:"4", D:"-4"}, "A"),
+  mcq("mathematics","Matrices","307-X · 2025","For square matrix A, A(adj A) =",
+    {A:"|A|I", B:"A", C:"I", D:"0"}, "A"),
+  mcq("mathematics","Continuity & Differentiability","307-X · 2025","Derivative of e^(log tan x) is:",
+    {A:"cot x", B:"tan x", C:"sec²x", D:"cosec²x"}, "C"),
+  mcq("mathematics","Continuity & Differentiability","307-X · 2025","Second derivative of log(log x):",
+    {A:"1/(x log x)", B:"1/log x", C:"1/x", D:"-(1+log x)/(x log x)²"}, "D"),
+  tf("mathematics","Continuity & Differentiability","307-X · 2025","f(x)=|x|/x is discontinuous at x=0.", "A"),
+  mcq("mathematics","Applications of Derivatives","307-X · 2025","Maximum value of sin x:",
+    {A:"1", B:"-1", C:"2", D:"-2"}, "A"),
+  mcq("mathematics","Integrals","307-X · 2025","∫ tan x dx =",
+    {A:"log cos x + C", B:"log sec x + C", C:"log sin x + C", D:"log cosec x + C"}, "B"),
+  mcq("mathematics","3D Geometry","307-X · 2025","Two lines are parallel if direction ratios are:",
+    {A:"Proportional", B:"Equal", C:"Perpendicular", D:"Zero"}, "A"),
+  tf("mathematics","Vector Algebra","307-X · 2025","Projection of i on j is zero.", "A"),
+  mcq("mathematics","Linear Programming","307-X · 2025","Define optimal solution:",
+    {A:"Best feasible solution", B:"Any feasible solution", C:"Corner point", D:"None"}, "A"),
+  mcq("mathematics","Determinants","307-Y · 2025","If |x-2; 6 4| = 0, x is:",
+    {A:"3√2", B:"-3√2", C:"±3√2", D:"18"}, "C"),
+  mcq("mathematics","Matrices","307-Y · 2025","If B is inverse of A, AB =",
+    {A:"I", B:"A", C:"B", D:"0"}, "A"),
+  mcq("mathematics","Continuity & Differentiability","307-Y · 2025","Derivative of e^(log x):",
+    {A:"x", B:"log x", C:"1", D:"0"}, "C"),
+  mcq("mathematics","Continuity & Differentiability","307-Y · 2025","Second derivative of tan⁻¹x:",
+    {A:"1/(1+x²)", B:"-2x/(1+x²)²", C:"2x/(1+x²)", D:"2x/(1+x²)²"}, "B"),
+  tf("mathematics","Continuity & Differentiability","307-Y · 2025","Every polynomial function is continuous.", "A"),
+  mcq("mathematics","Applications of Derivatives","307-Y · 2025","Maximum value of cos x:",
+    {A:"1", B:"-1", C:"2", D:"-2"}, "A"),
+  mcq("mathematics","Integrals","307-Y · 2025","∫ cot x dx =",
+    {A:"log cos x + C", B:"log sec x + C", C:"log sin x + C", D:"log cosec x + C"}, "C"),
+  tf("mathematics","3D Geometry","307-Y · 2025","Lines perpendicular if sum of products of direction ratios = 0.", "A"),
+  tf("mathematics","Vector Algebra","307-Y · 2025","Projection of i on k is 1.", "B"),
+  mcq("mathematics","Linear Programming","307-Y · 2025","Define objective function:",
+    {A:"Function to be optimised", B:"Set of constraints", C:"Feasible region", D:"None"}, "A"),
+  mcq("mathematics","Determinants","307-Z · 2025","If |x -2; 6 4| = 4, x is:",
+    {A:"-2", B:"2", C:"6", D:"4"}, "A"),
+  mcq("mathematics","Matrices","307-Z · 2025","A square matrix A is singular if |A| =",
+    {A:"0", B:"1", C:"-1", D:"2"}, "A"),
+  mcq("mathematics","Continuity & Differentiability","307-Z · 2025","Derivative of e^(log sin x):",
+    {A:"cos x", B:"-cos x", C:"sin x", D:"-sin x"}, "A"),
+  mcq("mathematics","Continuity & Differentiability","307-Z · 2025","Second derivative of x²⁰:",
+    {A:"380x¹⁸", B:"190x¹⁸", C:"20x¹⁸", D:"19x¹⁸"}, "A"),
+  tf("mathematics","Continuity & Differentiability","307-Z · 2025","f(x)=5x-3 is continuous at x=0.", "A"),
+  mcq("mathematics","Applications of Derivatives","307-Z · 2025","Maximum value of sin 2x + 5:",
+    {A:"5", B:"4", C:"6", D:"7"}, "C"),
+  mcq("mathematics","Integrals","307-Z · 2025","∫ sec x dx =",
+    {A:"log(sec x+tan x)+C", B:"log(sec x-tan x)+C", C:"log(cot x+cosec x)+C", D:"log(cot x-cosec x)+C"}, "A"),
+  mcq("mathematics","3D Geometry","307-Z · 2025","If lines intersect, shortest distance =",
+    {A:"0", B:"1", C:"∞", D:"Not defined"}, "A"),
+  tf("mathematics","Vector Algebra","307-Z · 2025","Projection of i+j on i-j is zero.", "A"),
+  mcq("mathematics","Linear Programming","307-Z · 2025","Define feasible region:",
+    {A:"Set of all feasible solutions", B:"Optimal solution", C:"Constraints", D:"None"}, "A"),
+
+  // 2025 Written
+  written("mathematics","Relations & Functions","307-X · 2025","Show R={(1,2),(2,1)} is symmetric but neither reflexive nor transitive.",
+    "Symmetric: (1,2)∈R ⇒ (2,1)∈R. Not reflexive: (1,1)∉R. Not transitive: (1,2),(2,1)∈R but (1,1)∉R."),
+  written("mathematics","Inverse Trigonometry","307-X · 2025","Prove 3sin⁻¹x = sin⁻¹(3x-4x³) for x∈[-1/2,1/2].",
+    "Let sin⁻¹x=θ ⇒ x=sinθ. sin3θ=3sinθ-4sin³θ=3x-4x³."),
+  written("mathematics","Applications of Derivatives","307-X · 2025","Length decreasing 3 cm/min, width increasing 2 cm/min. Rate of change of perimeter.",
+    "P=2(x+y). dP/dt=2(-3+2)=-2 cm/min."),
+  written("mathematics","Vector Algebra","307-X · 2025","Find unit vector in direction of i+j+2k.",
+    "|a|=√6. Unit = (i+j+2k)/√6."),
+  written("mathematics","Integrals","307-X · 2025","∫ sin x/(1+cos x) dx.",
+    "= -log|1+cos x|+C."),
+  written("mathematics","Probability","307-X · 2025","Coin tossed 3 times. P(E|F) where E=head on third, F=heads on first two.",
+    "P(E|F)=1/2."),
+  written("mathematics","Probability","307-X · 2025","P(E)=3/8, P(F)=3/8, P(E∩F)=1/4. Are E and F independent?",
+    "P(E)P(F)=9/64 ≠ 16/64, not independent."),
+  written("mathematics","Matrices","307-X · 2025","Product of [[1,2],[3,4]] and [[2,0],[1,3]].",
+    "[[4,6],[10,12]]."),
+  written("mathematics","Inverse Trigonometry","307-Y · 2025","Prove 3cos⁻¹x = cos⁻¹(4x³-3x).",
+    "Let cos⁻¹x=θ ⇒ x=cosθ. cos3θ=4cos³θ-3cosθ."),
+  written("mathematics","Applications of Derivatives","307-Y · 2025","Stone dropped, waves at 4 cm/s. When r=10, rate of area increase.",
+    "dA/dt=80π cm²/s."),
+  written("mathematics","Integrals","307-Y · 2025","∫ sin²x/(1+cos x) dx.",
+    "= x - sin x + C."),
+  written("mathematics","Inverse Trigonometry","307-Z · 2025","Prove sin⁻¹(2x√(1-x²)) = 2sin⁻¹x.",
+    "Let sin⁻¹x=θ, 2x√(1-x²)=sin2θ."),
+  written("mathematics","Integrals","307-Z · 2025","∫ cos x/√(1+sin x) dx.",
+    "= 2√(1+sin x)+C."),
+  written("mathematics","Linear Programming","307-X · 2025","Maximize z=3x+2y subject to x+2y≤10, 3x+y≤15.",
+    "Vertices: (0,0),(0,5),(4,3),(5,0). Max=18 at (4,3)."),
+  written("mathematics","Probability","307-X · 2025","Urn: 5R,5B. Draw, note colour, return +2 same. P(second red).",
+    "P(R₂)=1/2."),
+
+  // ===== 2024 PAPERS =====
+  mcq("mathematics","Determinants","1107-Y · 2024","Cofactor of 10 is:",
+    {A:"1", B:"-1", C:"3", D:"6"}, "D"),
+  mcq("mathematics","Matrices","1107-Y · 2024","If B is inverse of A, AB = BA =",
+    {A:"I", B:"A", C:"B", D:"0"}, "A"),
+  mcq("mathematics","Continuity & Differentiability","1107-Y · 2024","Derivative of cos(e^x):",
+    {A:"-e^x sin(e^x)", B:"e^x sin(e^x)", C:"-sin(e^x)", D:"sin(e^x)"}, "A"),
+  mcq("mathematics","Continuity & Differentiability","1107-Y · 2024","Points of discontinuity of f(x)=x+5:",
+    {A:"1", B:"2", C:"3", D:"0"}, "D"),
+  tf("mathematics","Integrals","1107-Y · 2024","∫ tan x dx = log sec x + C.", "A"),
+  mcq("mathematics","3D Geometry","1107-Y · 2024","Direction cosines of y-axis:",
+    {A:"1,0,0", B:"0,1,0", C:"0,0,1", D:"0,0,0"}, "B"),
+  mcq("mathematics","Vector Algebra","1107-Y · 2024","Unit vector along i+j+k:",
+    {A:"(i+j+k)/√3", B:"(i+j+k)/√2", C:"(i+j+k)/3", D:"(i+j+k)/2"}, "A"),
+  mcq("mathematics","Determinants","1107-Z · 2024","Cofactor of 2 is:",
+    {A:"6", B:"-6", C:"-1", D:"7"}, "B"),
+  mcq("mathematics","Matrices","1107-Z · 2024","(AB)' =",
+    {A:"B'A'", B:"A'B'", C:"AB", D:"BA"}, "A"),
+  mcq("mathematics","Differential Equations","1107-Z · 2024","Order of DE is:",
+    {A:"1", B:"2", C:"4", D:"Not defined"}, "B"),
+  mcq("mathematics","Continuity & Differentiability","1107-Z · 2024","Points of discontinuity of f(x)=1/(x²-5x+6):",
+    {A:"1", B:"2", C:"3", D:"0"}, "B"),
+  tf("mathematics","Integrals","1107-Z · 2024","∫ sec x dx = log(sec x+tan x)+C.", "A"),
+  mcq("mathematics","3D Geometry","1107-Z · 2024","Direction cosines of z-axis:",
+    {A:"1,0,0", B:"0,1,0", C:"0,0,1", D:"0,0,0"}, "C"),
+  mcq("mathematics","Vector Algebra","1107-Z · 2024","i·(j×k) =",
+    {A:"1", B:"-1", C:"0", D:"2"}, "A"),
+  mcq("mathematics","Determinants","1507-C · 2024","If |x 1; -2 3| = 8, x is:",
+    {A:"-2", B:"2", C:"3", D:"4"}, "B"),
+  mcq("mathematics","Matrices","1507-C · 2024","If A=[[cosα,-sinα],[sinα,cosα]] and A+Aᵗ=I, α:",
+    {A:"π/6", B:"π/3", C:"π", D:"3π/2"}, "B"),
+  mcq("mathematics","Differential Equations","1507-C · 2024","Arbitrary constants in 4th order DE:",
+    {A:"0", B:"2", C:"3", D:"4"}, "D"),
+  mcq("mathematics","3D Geometry","1507-C · 2024","Vector equation of XZ plane:",
+    {A:"r·k=0", B:"r·j=0", C:"r·i=0", D:"r·d=0"}, "B"),
+
+  // 2024 Written
+  written("mathematics","Relations & Functions","1107-Y · 2024","Check injectivity and surjectivity of f:R→R, f(x)=x².",
+    "Not injective: f(2)=f(-2)=4. Not surjective: negative numbers have no pre-image."),
+  written("mathematics","Inverse Trigonometry","1107-Y · 2024","Find tan⁻¹(-√3).",
+    "tan⁻¹(-√3) = -π/3."),
+  written("mathematics","Applications of Derivatives","1107-Y · 2024","Prove f(x)=log cos x is decreasing on (0,π/2).",
+    "f'(x)=-tan x<0."),
+  written("mathematics","Vector Algebra","1107-Y · 2024","Find angle between vectors with |a|=√3, |b|=2, a·b=√6.",
+    "cosθ=1/√2 ⇒ θ=π/4."),
+  written("mathematics","Probability","1107-Y · 2024","P(A)=3/5, P(B)=1/5, independent. Find P(A∩B).",
+    "P(A∩B)=3/25."),
+  written("mathematics","Differential Equations","1107-Y · 2024","Solve x log x (dy/dx)+y = (2/x) log x.",
+    "Solution: y log x = (log x)² + C."),
+  written("mathematics","Integrals","1107-Y · 2024","∫₀^(π/2) √(sin x)/(√sin x+√cos x) dx.",
+    "Value = π/4."),
+  written("mathematics","Linear Programming","1107-Y · 2024","Minimize z=-3x+4y subject to x+2y≤8, 3x+2y≤12.",
+    "Min=-12 at (4,0)."),
+  written("mathematics","Probability","1107-Y · 2024","Bag1:4R,4B; Bag2:2R,6B. P(Bag1|Red).",
+    "P=2/3."),
+  written("mathematics","Integrals","1507-C · 2024","∫₀^(π/4) log(1+tan x) dx.",
+    "Value = (π/8)log 2."),
+  written("mathematics","Linear Programming","1507-C · 2024","Maximize z=5x+3y subject to 3x+5y≤15, 5x+2y≤10.",
+    "Max≈12.37 at (20/19,45/19)."),
+
+  // ===== 2023 PAPERS =====
+  mcq("mathematics","Inverse Trigonometry","9112-Y · 2023","tan⁻¹x + cot⁻¹x =",
+    {A:"π/2", B:"π/3", C:"π/4", D:"π"}, "A"),
+  mcq("mathematics","Vector Algebra","9112-Y · 2023","|a×b| for unit vectors =",
+    {A:"cosθ", B:"sinθ", C:"ab cosθ", D:"ab sinθ"}, "B"),
+  mcq("mathematics","Matrices","9112-Y · 2023","|adj(A)| =",
+    {A:"|A|ⁿ", B:"|A|ⁿ⁻¹", C:"|A|ⁿ⁺¹", D:"None"}, "B"),
+
+  written("mathematics","Integrals","9112-Y · 2023","∫ (log x)²/x dx.",
+    "= (log x)³/3 + C."),
+  written("mathematics","Applications of Derivatives","9112-Y · 2023","Find local maxima/minima of f(x)=x³-6x²+9x+15.",
+    "f'(x)=3(x-1)(x-3). Max at x=1, min at x=3."),
+  written("mathematics","Linear Programming","9112-Y · 2023","Minimize z=x+2y subject to 2x+y≥3, x+2y≥6.",
+    "Min=3 at (3,0)."),
+
+  // ===== 2022 PAPERS =====
+  mcq("mathematics","Relations & Functions","6006-A · 2022","R={(x,y)|x<y} in {1,2,3} is:",
+    {A:"Reflexive", B:"Symmetric", C:"Transitive", D:"Anti-symmetric"}, "C"),
+  mcq("mathematics","Inverse Trigonometry","6006-A · 2022","cos⁻¹(-1/√2) =",
+    {A:"π/4", B:"π/2", C:"π/3", D:"3π/4"}, "D"),
+  mcq("mathematics","Matrices","6006-A · 2022","Matrices equal if:",
+    {A:"a_ij=0", B:"b_ij=0", C:"a_ij+b_ij=0", D:"a_ij=b_ij"}, "D"),
+  mcq("mathematics","3D Geometry","6006-A · 2022","Direction cosines of x-axis:",
+    {A:"1,0,0", B:"0,1,0", C:"0,0,1", D:"1,1,1"}, "A"),
+  mcq("mathematics","Relations & Functions","6006-B · 2022","R={(x,y)|x>1} in {1,2,3} is:",
+    {A:"Reflexive", B:"Symmetric", C:"Transitive", D:"None"}, "D"),
+  mcq("mathematics","Inverse Trigonometry","6006-B · 2022","cos⁻¹(-1/2) =",
+    {A:"π/3", B:"π/6", C:"2π/3", D:"π/4"}, "C"),
+  mcq("mathematics","Matrices","6006-B · 2022","If A,B symmetric, AB-BA is:",
+    {A:"Symmetric", B:"Skew symmetric", C:"Zero", D:"Identity"}, "B"),
+  mcq("mathematics","3D Geometry","6006-B · 2022","Direction cosines of z-axis:",
+    {A:"1,0,0", B:"0,1,0", C:"0,0,1", D:"1,1,1"}, "C"),
+  mcq("mathematics","Matrices","6006-C · 2022","If A is both symmetric and skew-symmetric, then:",
+    {A:"A is diagonal", B:"A is null", C:"A is square", D:"None"}, "B"),
+  mcq("mathematics","Vector Algebra","6006-C · 2022","λa is unit vector if:",
+    {A:"λ=1", B:"λ=-1", C:"a=|λ|", D:"a=1/|λ|"}, "D"),
+
+  written("mathematics","Integrals","6006-A · 2022","∫(ax²+bx+c)dx.",
+    "= ax³/3 + bx²/2 + cx + C."),
+  written("mathematics","Applications of Derivatives","6006-A · 2022","Rate of change of area of circle w.r.t radius when r=5 cm.",
+    "dA/dr=10π."),
+  written("mathematics","Differential Equations","6006-A · 2022","Form DE for y=mx².",
+    "dy/dx=2y/x."),
+  written("mathematics","Linear Programming","6006-A · 2022","Maximize z=3x+4y subject to x+y≤4.",
+    "Max=16 at (0,4)."),
+  written("mathematics","Probability","6006-A · 2022","Two cards without replacement. P(both black).",
+    "P=25/102."),
+  written("mathematics","Probability","6006-A · 2022","P(A)=3/5, P(B)=1/5, independent. P(A∩B).",
+    "P(A∩B)=3/25."),
+];
+
+/* ============================================================
+   SUBJECT MAPPING
+   ============================================================ */
+const SUBJECT_TOPICS = {
+  physics: PHYSICS_TOPICS,
+  chemistry: CHEMISTRY_TOPICS,
+  mathematics: MATH_TOPICS,
+};
+
+const ALL_QUESTIONS = [...PHYSICS_QUESTIONS, ...CHEMISTRY_QUESTIONS, ...MATH_QUESTIONS];
+
+/* ============================================================
+   STATE & RENDER ENGINE
+   ============================================================ */
+const state = {
+  currentSubject: 'physics',
+  activeTopics: new Set(PHYSICS_TOPICS),
+  activeTypes: new Set(['mcq','written']),
+  answers: {},
+  revealed: {},
+  reviewed: {}
+};
+
+function getQuestions() {
+  return ALL_QUESTIONS.filter(q => q.subject === state.currentSubject);
+}
+
+function getTopics() {
+  return SUBJECT_TOPICS[state.currentSubject] || [];
+}
+
+function topicCount(topic) {
+  return getQuestions().filter(q => q.topic === topic && state.activeTypes.has(q.qtype)).length;
+}
+
+function getVisibleQuestions() {
+  return getQuestions().filter(q =>
+    state.activeTopics.has(q.topic) && state.activeTypes.has(q.qtype)
+  );
+}
+
+function updateSubjectCounts() {
+  document.getElementById('physCount').textContent = ALL_QUESTIONS.filter(q => q.subject === 'physics').length;
+  document.getElementById('chemCount').textContent = ALL_QUESTIONS.filter(q => q.subject === 'chemistry').length;
+  document.getElementById('mathCount').textContent = ALL_QUESTIONS.filter(q => q.subject === 'mathematics').length;
+  document.getElementById('totalStats').innerHTML =
+    `<strong>${ALL_QUESTIONS.length}</strong> total questions · <strong>${state.currentSubject}</strong> · ${getQuestions().length} in this subject`;
+}
+
+function renderChips() {
+  const chips = document.getElementById('chips');
+  chips.innerHTML = '';
+  const topics = getTopics();
+  topics.forEach(topic => {
+    const n = topicCount(topic);
+    if (n === 0) return;
+    const btn = document.createElement('button');
+    btn.className = 'chip' + (state.activeTopics.has(topic) ? ' active' : ' off');
+    btn.innerHTML = topic + '<span class="n">' + n + '</span>';
+    btn.addEventListener('click', () => {
+      if (state.activeTopics.has(topic)) state.activeTopics.delete(topic);
+      else state.activeTopics.add(topic);
+      renderChips(); renderQuiz(); updateScore();
+    });
+    chips.appendChild(btn);
+  });
+
+  const typeChips = document.getElementById('typeChips');
+  typeChips.innerHTML = '';
+  const typeDefs = [['mcq','MCQ / TF'], ['written','Written']];
+  typeDefs.forEach(([key,label]) => {
+    const n = getQuestions().filter(q => q.qtype===key && state.activeTopics.has(q.topic)).length;
+    const btn = document.createElement('button');
+    btn.className = 'chip type' + (state.activeTypes.has(key) ? ' active' : ' off');
+    btn.innerHTML = label + '<span class="n">' + n + '</span>';
+    btn.addEventListener('click', () => {
+      if (state.activeTypes.has(key)) state.activeTypes.delete(key);
+      else state.activeTypes.add(key);
+      renderChips(); renderQuiz(); updateScore();
+    });
+    typeChips.appendChild(btn);
+  });
+}
+
+function renderQuiz() {
+  const quiz = document.getElementById('quiz');
+  quiz.innerHTML = '';
+
+  const visibleQs = getVisibleQuestions();
+  const topicMap = {};
+  visibleQs.forEach(q => {
+    if (!topicMap[q.topic]) topicMap[q.topic] = [];
+    topicMap[q.topic].push(q);
+  });
+
+  const topicNames = Object.keys(topicMap);
+  if (topicNames.length === 0) {
+    quiz.innerHTML = '<div class="empty-state">Nothing to show — pick a topic and question type.</div>';
+    return;
+  }
+
+  topicNames.forEach(topic => {
+    const qs = topicMap[topic];
+    const section = document.createElement('section');
+    section.className = 'topic-section';
+
+    const head = document.createElement('div');
+    head.className = 'topic-head';
+    head.innerHTML = '<h2>' + topic + '</h2><span class="count">' + qs.length + ' questions</span>';
+    section.appendChild(head);
+
+    qs.forEach(q => {
+      const card = document.createElement('div');
+      card.className = 'q-card';
+
+      const meta = document.createElement('div');
+      meta.className = 'q-meta';
+      const kindLabel = q.qtype === 'mcq' ? (Object.keys(q.options).length===2 && q.options.A==='True' ? 'TF' : 'MCQ') : 'Written';
+      meta.innerHTML = '<span class="q-tag">' + q.src + '</span><span class="q-kind">' + kindLabel + '</span>';
+      card.appendChild(meta);
+
+      const text = document.createElement('p');
+      text.className = 'q-text';
+      text.textContent = q.text;
+      card.appendChild(text);
+
+      if (q.qtype === 'mcq') {
+        const opts = document.createElement('div');
+        opts.className = 'options';
+        const picked = state.answers[q.id];
+        Object.keys(q.options).forEach(letter => {
+          const opt = document.createElement('div');
+          let cls = 'opt';
+          if (picked) {
+            cls += ' disabled';
+            if (letter === q.correct) cls += ' correct';
+            else if (letter === picked) cls += ' wrong';
+          }
+          opt.className = cls;
+          opt.innerHTML = '<span class="letter">' + letter + '</span><span>' + q.options[letter] + '</span>';
+          if (!picked) opt.addEventListener('click', () => selectAnswer(q.id, letter));
+          opts.appendChild(opt);
+        });
+        card.appendChild(opts);
+
+        if (picked) {
+          const verdict = document.createElement('div');
+          const isRight = picked === q.correct;
+          verdict.className = 'verdict ' + (isRight ? 'right' : 'wrong');
+          verdict.textContent = isRight ? '✅ Correct.' : '❌ Correct answer is ' + q.correct + '.';
+          card.appendChild(verdict);
+        }
+      } else {
+        const btn = document.createElement('button');
+        btn.className = 'revealBtn';
+        const isShown = !!state.revealed[q.id];
+        btn.textContent = isShown ? 'Hide hint' : 'Show hint';
+        btn.addEventListener('click', () => toggleReveal(q.id));
+        card.appendChild(btn);
+
+        const kp = document.createElement('div');
+        kp.className = 'keypoints' + (isShown ? ' shown' : '');
+        kp.innerHTML = '<b>Hint: </b>' + q.keypoints;
+        card.appendChild(kp);
+
+        const reviewRow = document.createElement('div');
+        reviewRow.className = 'reviewRow';
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.id = 'rev-' + q.id;
+        cb.checked = !!state.reviewed[q.id];
+        cb.addEventListener('change', () => toggleReviewed(q.id));
+        const lbl = document.createElement('label');
+        lbl.htmlFor = 'rev-' + q.id;
+        lbl.textContent = 'mark as reviewed';
+        reviewRow.appendChild(cb);
+        reviewRow.appendChild(lbl);
+        card.appendChild(reviewRow);
+      }
+
+      section.appendChild(card);
+    });
+
+    quiz.appendChild(section);
+  });
+}
+
+function updateScore() {
+  const visible = getVisibleQuestions();
+  const mcqVisible = visible.filter(q => q.qtype === 'mcq');
+  const writtenVisible = visible.filter(q => q.qtype === 'written');
+
+  const answered = mcqVisible.filter(q => state.answers[q.id]);
+  const correct = answered.filter(q => state.answers[q.id] === q.correct);
+  const reviewed = writtenVisible.filter(q => state.reviewed[q.id]);
+
+  let html = '';
+  if (mcqVisible.length) {
+    html += '<b>' + answered.length + '</b>/' + mcqVisible.length + ' answered · <span class="correct-n">' + correct.length + '</span> correct';
+  }
+  if (writtenVisible.length) {
+    if (html) html += ' &nbsp;·&nbsp; ';
+    html += '<span class="rev-n">' + reviewed.length + '</span>/' + writtenVisible.length + ' reviewed';
+  }
+  document.getElementById('score').innerHTML = html || 'No questions selected.';
+  document.getElementById('totalStats').innerHTML =
+    `<strong>${ALL_QUESTIONS.length}</strong> total · <strong>${state.currentSubject}</strong> · ${getQuestions().length} questions`;
+}
+
+function selectAnswer(qid, letter) {
+  if (state.answers[qid]) return;
+  state.answers[qid] = letter;
+  renderQuiz(); updateScore();
+}
+
+function toggleReveal(qid) {
+  state.revealed[qid] = !state.revealed[qid];
+  renderQuiz();
+}
+
+function toggleReviewed(qid) {
+  state.reviewed[qid] = !state.reviewed[qid];
+  updateScore();
+}
+
+function switchSubject(subject) {
+  state.currentSubject = subject;
+  state.activeTopics = new Set(SUBJECT_TOPICS[subject] || []);
+  state.answers = {};
+  state.revealed = {};
+  state.reviewed = {};
+  document.querySelectorAll('.subject-tab').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.subject === subject);
+  });
+  renderChips(); renderQuiz(); updateScore();
+  document.getElementById('totalStats').innerHTML =
+    `<strong>${ALL_QUESTIONS.length}</strong> total · <strong>${subject}</strong> · ${getQuestions().length} questions`;
+}
+
+/* ============================================================
+   EVENT LISTENERS
+   ============================================================ */
+document.querySelectorAll('.subject-tab').forEach(tab => {
+  tab.addEventListener('click', () => switchSubject(tab.dataset.subject));
+});
+
+document.getElementById('allBtn').addEventListener('click', () => {
+  state.activeTopics = new Set(getTopics());
+  renderChips(); renderQuiz(); updateScore();
+});
+
+document.getElementById('noneBtn').addEventListener('click', () => {
+  state.activeTopics = new Set();
+  renderChips(); renderQuiz(); updateScore();
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  state.answers = {}; state.revealed = {}; state.reviewed = {};
+  renderQuiz(); updateScore();
+});
+
+/* ============================================================
+   INIT
+   ============================================================ */
+updateSubjectCounts();
+renderChips();
+renderQuiz();
+updateScore();
+</script>
+</body>
+</html>
